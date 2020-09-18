@@ -53,7 +53,7 @@
 
 <li class="ddmenu-title">Logout
 <ul class="ddmenu">
-	<li><a href="index.html">ログアウトする</a></li>
+	<li><a href="index.jsp">ログアウトする</a></li>
 
 	</ul>
 </li>

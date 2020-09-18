@@ -1,4 +1,4 @@
-package init;
+package servlet;
 
 import java.io.IOException;
 
@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class loginInitServlet
  */
-@WebServlet("/loginInitServlet")
-public class RegisterInitServlet extends HttpServlet {
+@WebServlet("/MenuInitServlet")
+public class MenuInitServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 
@@ -26,7 +26,7 @@ public class RegisterInitServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/newlogin.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/menu.jsp");
 		dispatcher.forward(request, response);
 	}
 
