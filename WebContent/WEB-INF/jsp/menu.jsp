@@ -45,7 +45,7 @@
 
 <li class="ddmenu-title">Login
 <ul class="ddmenu">
-	<li><a href="login.html">ログインする</a></li>
+	<li><a href="${pageContext.request.contextPath}/loginInitServlet">ログインする</a></li>
 	<li><a href="newlogin.html">新規登録をする</a></li>
 
 	</ul>
