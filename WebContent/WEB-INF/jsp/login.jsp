@@ -4,12 +4,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>飲酒クラブ（仮）</title>
+<title>TrinkenVerein</title>
 </head>
 <body>
 
 	<h1>ログイン画面</h1>
-	<span style="color:#ff0000;">${message}</span>
+
 	<form action="${pageContext.request.contextPath}/LoginServlet" method="post">
 		<table>
 			<tr>
@@ -28,7 +28,7 @@
 		</table>
 	</form>
 	<br>
-	<a href="${pageContext.request.contextPath}/public/UserInputInitServlet">新規ユーザ登録</a>
+	<a href="${pageContext.request.contextPath}/WEB-INF/login.jsp">新規ユーザ登録</a>
 
 </body>
 </html>

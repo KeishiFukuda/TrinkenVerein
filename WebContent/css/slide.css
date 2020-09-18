@@ -1,0 +1,64 @@
+@charset "utf-8";
+
+
+/*keyframes.cssの読み込み
+---------------------------------------------------------------------------*/
+@import url("keyframes.css");
+
+/*スライドショー
+---------------------------------------------------------------------------*/
+/*画像ブロック*/
+#mainimg {
+	clear: left;
+	text-indent: -9999px;
+	position: absolute;
+	top: 50px;	/*style.cssのheaderのheightと合わせる*/
+	left: 0px;
+	width: 100%;
+	height: 500px;	/*スライドショーの高さ*/
+}
+/*画像の共通設定*/
+.slide0,.slide1,.slide2,.slide3 {width: 100%;height: 100%;}
+.slide1,.slide2,.slide3 {
+	animation-timing-function: linear;
+	animation-duration: 12s;	/*実行する時間。「s」は秒の事。*/
+	animation-iteration-count:infinite;		/*実行する回数。「infinite」は無限に繰り返す意味。*/
+	position: absolute;left:0px;top:0px;width: 100%;height: 100%;
+	animation-fill-mode: both;
+	animation-delay: 1s;	/*アニメーションがスタートするまでの待機時間（秒）*/
+}
+/*土台*/
+.slide0 {
+	position: relative;
+}
+/*１枚目*/
+.slide1 {
+	background: url(../images/11.jpg) repeat-x center center / cover;
+	animation-name: slide1;		/*keyframes.cssで使う@keyframesの指定*/
+}
+/*２枚目*/
+.slide2 {
+	background: url(../images/22.jpg) repeat-x center center / cover;
+	animation-name: slide2;		/*keyframes.cssで使う@keyframesの指定*/
+}
+/*３枚目*/
+.slide3 {
+	background: url(../images/33.jpg) no-repeat center center / cover;
+	animation-name: slide3;		/*keyframes.cssで使う@keyframesの指定*/
+}
+
+
+/*画面幅600px以下の設定
+------------------------------------------------------------------------------------------------------------------------------------------------------*/
+@media screen and (max-width:600px){
+
+/*スライドショー
+---------------------------------------------------------------------------*/
+/*画像ブロック*/
+#mainimg {
+	top: 90px;	/*style.cssの「画面幅600px以下の設定」にあるheaderのheightと合わせる*/
+	height: 300px;	/*スライドショーの高さ*/
+
+}
+
+}

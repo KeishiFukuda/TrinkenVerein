@@ -4,6 +4,7 @@ public class UserInfoEntity {
 	String UserId;
 	String Password;
 	String Age;
+	String UserName;
 
 	public String getUserId() {
 		return UserId;
@@ -23,7 +24,27 @@ public class UserInfoEntity {
 	public void setAge(String age) {
 		Age = age;
 	}
+	public String getUserName() {
+		return UserName;
+	}
+	public void setUserName(String userName) {
+		UserName = userName;
+	}
 
+	@Override
+	public String toString() {
+		StringBuffer sb = new StringBuffer();
+		sb.append(this.getClass().getName())
+		.append("{")
+		.append("userId=")
+		.append(getUserId())
+		.append(",userName=")
+		.append(getUserName())
+		.append(",password=")
+		.append(getPassword())
+		.append("}");
+		return sb.toString();
+	}
 
 
 }

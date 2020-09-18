@@ -5,6 +5,7 @@ public class UserDataDTO {
 	String UserId;
 	String Password ;
 	String Age;
+	String UserName;
 
 	public String getUserId() {
 		return UserId;
@@ -23,6 +24,12 @@ public class UserDataDTO {
 	}
 	public void setAge(String age) {
 		Age = age;
+	}
+	public String getUserName() {
+		return UserName;
+	}
+	public void setUserName(String userName) {
+		UserName = userName;
 	}
 
 
