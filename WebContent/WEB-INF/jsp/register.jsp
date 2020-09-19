@@ -1,9 +1,11 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
   <meta charset="utf-8">
     <title>Login</title>
-    
+
     <link rel="stylesheet" href="css/input.css">
 </head>
 <body>
@@ -18,22 +20,22 @@
       <form name='form-login'>
         <span class="fontawesome-user"></span>
           <input type="text" id="user" placeholder="UseNamer">
-          
-          
+
+
       <form name='form-login'>
         <span class="fontawesome-user"></span>
           <input type="text" id="user" placeholder="UserId">
-       
+
         <span class="fontawesome-lock"></span>
           <input type="password" id"pass" placeholder="Password">
-          
+
          <span class="fontawesome-date"></span>
           <input type="date" id"pass" placeholder="age">
-          
-          
-        
+
+
+
         <input type="submit" value="Registration">
-   
+
 <footer>
 
 <div id="footermenu">

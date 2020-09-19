@@ -35,8 +35,8 @@
 
 <ul>
 <li class="title"><font color="white">新規の方は新規登録画面へお進みください。</font></li>
-<p><a href="newlogin.html"><font color="white">新規登録画面へ</font></a></p>
-<p><a href="index.html"><font color="white">戻る</font></a></p>
+<p><a href="${pageContext.request.contextPath}/RegisterInitServlet"><font color="white">新規登録画面へ</font></a></p>
+<p><a href="${pageContext.request.contextPath}/MenuInitServlet"><font color="white">戻る</font></a></p>
 
 
 </ul>
@@ -45,7 +45,7 @@
 <!--/#footermenu-->
 
 <div id="copyright">
-<center><h5>Beer Site</h5></center>
+<center><h5>TrinkenVerein</h5></center>
 </div>
 <!--/#copyright-->
 
