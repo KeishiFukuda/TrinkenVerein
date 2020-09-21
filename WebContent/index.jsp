@@ -1,0 +1,1 @@
+<jsp:forward page="/ageComfirmationInitServlet"></jsp:forward>
