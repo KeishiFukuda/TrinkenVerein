@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import entity.BeerEntity;
+import logic.ProductLogic;
 
 @WebServlet("/InformationServlet")
 public class InformationServlet extends HttpServlet {
@@ -17,22 +18,22 @@ public class InformationServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		//リクエストパラメータを取得
+		String registerId = request.getParameter("registerId");
 
-		String productName = ((BeerEntity) request).getProductName();
-		String classification = ((BeerEntity) request).getClassification();
-		String introduction = ((BeerEntity) request).getIntroduction();
-		String price = ((BeerEntity) request).getPrice();
-		String shopUrl = ((BeerEntity) request).getShopUrl();
-
+		//入力値をプロパティに設定
 		BeerEntity beerEntity = new BeerEntity();
-		beerEntity.setProductName(productName);
-		beerEntity.setClassification(classification);
-		beerEntity.setIntroduction(introduction);
-		beerEntity.setPrice(price);
-		beerEntity.setShopUrl(shopUrl);
+		beerEntity.setRegisterId(registerId);
+
+		//ProductLogicを実行し結果を設定
+		ProductLogic productLogic = new ProductLogic();
+		BeerEntity result= productLogic.execute(beerEntity);
+
+		// リクエストスコープに保存する
+		request.setAttribute("beerEntity", result);
 
 		//Information.jspにフォワード
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Information.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/information.jsp");
 		dispatcher.forward(request, response);
 
 	}
@@ -41,6 +42,7 @@ public class InformationServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		doGet(request, response);
+
 	}
 
 }

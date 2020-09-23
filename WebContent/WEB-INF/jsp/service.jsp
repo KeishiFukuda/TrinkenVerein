@@ -7,29 +7,24 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>Beer Site</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Beer Site">
+<meta name="description" content="ここにサイト説明を入れます">
 <meta name="keywords" content="キーワード１,キーワード２,キーワード３,キーワード４,キーワード５">
 <link rel="stylesheet" href="css/style.css">
 <script src="js/openclose.js"></script>
 <script src="js/fixmenu_pagetop.js"></script>
 <script src="js/ddmenu_min.js"></script>
-<!--[if lt IE 10]>
-<style>
-.slide0,.slide2,.slide3 {display:none;}
-</style>
-<![endif]-->
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 </head>
 
-<body class="home">
+<body>
 
 <div id="container">
 
 <header>
-<h1 id="logo"><a href="index.html"><img src="images/title2.png"></a></h1>
+<h1 id="logo"><a href="index.jsp"><img src="images/title2.png"></a></h1>
 <!--PC用（901px以上端末）メニュー-->
 <nav id="menubar">
 <ul>
@@ -45,19 +40,11 @@
 
 <li class="ddmenu-title">Login
 <ul class="ddmenu">
-	<li><a href="${pageContext.request.contextPath}/loginInitServlet">ログインする</a></li>
-	<li><a href="${pageContext.request.contextPath}/RegisterInitServlet">新規登録をする</a></li>
+	<li><a href="login.jsp">ログインする</a></li>
+	<li><a href="newlogin.jsp">新規登録をする</a></li>
 
 	</ul>
 </li>
-
-<li class="ddmenu-title">Logout
-<ul class="ddmenu">
-	<li><a href="index.jsp">ログアウトする</a></li>
-
-	</ul>
-</li>
-
 
 </ul>
 </nav>
@@ -73,34 +60,34 @@
 </ul>
 </header>
 
+
 <div id="contents">
 
 <section>
 
-<h2>Pickup News<span>サイト紹介</span></h2>
+<h2>Service<span>サイト紹介</span></h2>
 
 <div class="list">
-<figure><img src="images/beer1.jpg" alt=""></figure>
+<figure><img src="images/111.jpg" alt=""></figure>
 <div class="text">
-<h4>サイト紹介</h4>
-<p>ビールが苦手な方、好きな方でもおススメできるビールを紹介するサイトです。</p>
-<p>上記のビール選択から簡単な質問に答えるだけでおすすめビールを紹介します。</p>
-<p class="btn1"><a href="service.html">もっとみる</a></p>
-</div>
-</div>
+<h4>TrinkenVerein~トリンケンヴェレーヌ~</h4>
+<p>サイト紹介をご覧いただき、ありがとうございます。</p>
+<p>まず初めにサイト名【TrinkenVerein~トリンケンヴェレーヌ~】とは、</p>
+<p>ドイツ語です。日本語に直すと【飲酒クラブ】という意味になります。</p>
+<p></p>
+<p>～ここにサイト紹介をもっと書く予定～</p>
+<p></p>
+<p>簡単な質問に答えていくだけで、</p>
+<p>ビールが好きな方、ビールが嫌いな方にもおすすめのビールを紹介致します。</p>
+<p>ぜひ一度ビール検索してみてください♬</p>
 
-<div class="list">
-<figure><img src="images/sample11.jpg" alt=""></figure>
-<div class="text">
-<h4>あなたにお勧めのビール検索</h4>
-<p>簡単な質問に答えるだけでおすすめのビールを紹介します。</p>
-<p>下記ボタンよりお進みください。</p>
 <p class="btn1"><a href="recruit.jsp">ビール検索してみる</a></p>
 </div>
 </div>
 
-</section>
 
+
+</section>
 
 </div>
 <!--/#contents-->
@@ -108,31 +95,15 @@
 <footer>
 
 <div id="footermenu">
-
-
-<ul>
-<li class="title">ご覧いただきありがとうございます。</li>
-<a href="menu.jsp">上部に戻る</a>
-
-</ul>
-
 </div>
 <!--/#footermenu-->
 
 <div id="copyright">
-<center><h5>Beer Site</h5></center>
+<h5>Beer Site</h5>
 </div>
 <!--/#copyright-->
 
 </footer>
-
-<!--背景スライドショー-->
-
-<aside id="mainimg">
-<img src="images/11.jpg" alt="" class="slide1">
-<img src="images/22.jpg" alt="" class="slide2">
-<img src="images/33.jpg" alt="" class="slide3">
-</aside>
 
 <!--ページの上部に戻る「↑」ボタン-->
 <p class="nav-fix-pos-pagetop"><a href="#">↑</a></p>

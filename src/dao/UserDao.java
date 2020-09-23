@@ -10,7 +10,7 @@ import javax.sql.DataSource;
 
 import entity.UserInfoEntity;
 
-public class UserRegisterDao {
+public class UserDao {
 	/*
 	 * ユーザー登録処理
 	 */
