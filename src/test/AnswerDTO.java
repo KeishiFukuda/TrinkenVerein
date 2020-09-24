@@ -2,7 +2,7 @@ package test;
 
 import java.io.Serializable;
 
-public class QuestionAnswerDTO implements Serializable{
+public class AnswerDTO implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 

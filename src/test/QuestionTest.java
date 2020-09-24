@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 @WebServlet("/QuestionTest")
 public class QuestionTest extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -19,18 +18,15 @@ public class QuestionTest extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String answers = request.getParameter("answer");
-
-		String chooseQ = "DO YOU LIKE WINE ?";
-		if(answers.equals("A1")) {
-			//次の質問を表示
-			chooseQ = "DO YOU LIKE BEER ?";
-			}else {
-			//結果を表示(画面遷移)
-		}
-		request.setAttribute("Question", chooseQ);
-
-		QuestionAnswerDTO answer = new QuestionAnswerDTO();
+		AnswerDTO answer =new AnswerDTO();
 		answer.setAnswer(answers);
+
+		TestService ts = new TestService();
+		QuestionDTO qd = ts.move(answer);
+
+
+		request.setAttribute("Question", qd.getQuestion());
+
 	}
 
 }
