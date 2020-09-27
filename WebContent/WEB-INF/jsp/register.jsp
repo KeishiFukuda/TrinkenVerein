@@ -27,10 +27,10 @@
           <input type="text" id="user" placeholder="UserId">
 
         <span class="fontawesome-lock"></span>
-          <input type="password" id"pass" placeholder="Password">
+          <input type="password" id="pass" placeholder="Password">
 
          <span class="fontawesome-date"></span>
-          <input type="date" id"pass" placeholder="age">
+          <input type="date" id="pass" placeholder="age">
 
 
 

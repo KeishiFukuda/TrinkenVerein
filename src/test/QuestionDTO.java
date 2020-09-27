@@ -8,6 +8,9 @@ public class QuestionDTO implements Serializable{
 
 	private String Question;
 
+	private String name;
+
+
 	public String getQuestion() {
 		return Question;
 	}
@@ -16,6 +19,13 @@ public class QuestionDTO implements Serializable{
 		Question = question;
 	}
 
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 
 
 }
