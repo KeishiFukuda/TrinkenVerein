@@ -1,14 +1,16 @@
 package logic;
 
+import java.util.List;
+
 import dao.BeerDao;
 import entity.BeerEntity;
 
 public class ProductLogic {
 
-	public BeerEntity execute(BeerEntity BeerEntity) {
+	public List<BeerEntity> execute(BeerEntity beerCondition) {
 		BeerDao beerDao = new BeerDao();
-		BeerEntity beerEntity2 = beerDao.find(BeerEntity);
-		return beerEntity2;
+		List<BeerEntity> beerResultList = beerDao.find(beerCondition);
+		return beerResultList;
 	}
 
 }

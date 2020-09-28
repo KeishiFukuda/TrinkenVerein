@@ -1,4 +1,4 @@
-package test;
+package servlet;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -11,8 +11,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/QuestionTestServlet")
-public class QuestionTestServlet extends HttpServlet {
+import dto.QuestionDTO;
+
+@WebServlet("/QuestionServlet")
+public class QuestionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -35,10 +37,10 @@ public class QuestionTestServlet extends HttpServlet {
 
 				request.setAttribute("question", question);
 
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/questionTest.jsp");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/recruit.jsp");
 				dispatcher.forward(request, response);
 			} else {
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/questionTest.jsp");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/recruit.jsp");
 				dispatcher.forward(request, response);
 			}
 
@@ -49,19 +51,19 @@ public class QuestionTestServlet extends HttpServlet {
 
 				request.setAttribute("question", question);
 
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/questionTest.jsp");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/recruit.jsp");
 				dispatcher.forward(request, response);
 			} else {
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/questionTest.jsp");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/recruit.jsp");
 				dispatcher.forward(request, response);
 			}
 
 		}else if(request.getParameter("questionId").equals("q3")) {
 			if(request.getParameter("answer").equals("A1")) {
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/questionTest.jsp");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/recruit.jsp");
 				dispatcher.forward(request, response);
 			}else {
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/questionTest.jsp");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/recruit.jsp");
 				dispatcher.forward(request, response);
 			}
 		}

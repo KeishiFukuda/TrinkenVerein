@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Beer Site</title>
+<title>TrinkenVerein</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="ここにサイト説明を入れます">
 <meta name="keywords" content="キーワード１,キーワード２,キーワード３,キーワード４,キーワード５">
@@ -27,6 +27,96 @@ h4 {
   background-image: linear-gradient(to right, #f83600 0%, #f9d423 60%);
 }
 
+.cp_ipradio {
+	width: 90%;
+	margin: 2em auto;
+	text-align: left;
+}
+@keyframes click-wave {
+	0% {
+		position: relative;
+		width: 30px;
+		height: 30px;
+		opacity: 0.35;
+	}
+	100% {
+		width: 200px;
+		height: 200px;
+		margin-top: -80px;
+		margin-left: -80px;
+		opacity: 0;
+	}
+}
+.cp_ipradio .option-input {
+	position: relative;
+	position: relative;
+	top: 13.33333px;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	width: 30px;
+	height: 30px;
+	margin-right: 0.5rem;
+	cursor: pointer;
+	transition: all 0.15s ease-out 0s;
+	color: #ffffff;
+	border: none;
+	outline: none;
+	background: #d7cbcb;
+	-webkit-appearance: none;
+	        appearance: none;
+}
+.cp_ipradio .option-input:hover {
+	background: #d6a9a9;
+}
+.cp_ipradio .option-input:checked {
+	background: #da3c41;
+}
+.cp_ipradio .option-input:checked::before {
+	font-size: 20px;
+	line-height: 30px;
+	position: absolute;
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	content: '✔';
+	text-align: center;
+}
+.cp_ipradio .option-input:checked::after {
+	position: relative;
+	display: block;
+	content: '';
+	-webkit-animation: click-wave 0.65s;
+	        animation: click-wave 0.65s;
+	background: #da3c41;
+}
+.cp_ipradio .option-input.radio {
+	border-radius: 50%;
+}
+.cp_ipradio .option-input.radio::after {
+	border-radius: 50%;
+}
+.cp_ipradio label {
+	line-height: 40px;
+	display: block;
+}
+.cp_ipradio .option-input:disabled {
+	cursor: not-allowed;
+	background: #b8b7b7;
+}
+.cp_ipradio .option-input:disabled::before {
+	font-size: 20px;
+	line-height: 30px;
+	position: absolute;
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	content: '✖︎';
+	text-align: center;
+}
+.cp_ipradio .disabled {
+	color: #9e9e9e;
+}
 
 </style>
 </head>
@@ -36,15 +126,15 @@ h4 {
 <div id="container">
 
 <header>
-<h1 id="logo"><a href="index.jsp"><img src="images/title2.png"></a></h1>
+<h1 id="logo"><a href="index.html"><img src="images/title2.png"></a></h1>
 <!--PC用（901px以上端末）メニュー-->
 <nav id="menubar">
 <ul>
 
 <li class="ddmenu-title">Service
 	<ul class="ddmenu">
-	<li><a href="service.jsp">サイト紹介</a></li>
-	<li><a href="recruit.jsp">あなたにお勧めのビール検索</a></li>
+	<li><a href="service.html">サイト紹介</a></li>
+	<li><a href="recruit.html">あなたにお勧めのビール検索</a></li>
 
 	</ul>
 </li>
@@ -52,8 +142,8 @@ h4 {
 
 <li class="ddmenu-title">Login
 <ul class="ddmenu">
-	<li><a href="login.jsp">ログインする</a></li>
-	<li><a href="newlogin.jsp">新規登録をする</a></li>
+	<li><a href="login.html">ログインする</a></li>
+	<li><a href="newlogin.html">新規登録をする</a></li>
 
 	</ul>
 </li>
@@ -83,9 +173,22 @@ h4 {
 <figure><img src="images/111.jpg" alt=""></figure>
 <div class="text">
 <h4>おススメのビールを検索するため質問にお答えください♬</h4>
-</br>
-<h5>質問1  ...お酒はつよいですか？？</h5>
+
+<h5>${question.question}</h5>
 <p></p>
+
+<div class="cp_ipradio">
+
+	<form action="${pageContext.request.contextPath}/QuestionServlet" method="post">
+	<input type="checkbox" name= "answer" value="A1">YES &nbsp;&nbsp;&nbsp;
+	<input type="checkbox" name= "answer" value="A2">NO &nbsp;&nbsp;&nbsp;
+	<input type="hidden" name="questionId" value="${question.questionId}"/>
+	<p class="btn1"><input type="submit" value="回答する"></p>
+	</form>
+</div>
+
+
+
 
 <p class="btn1"><a href="recruit.html">回答する</a></p>
 </div>
@@ -105,7 +208,7 @@ h4 {
 <!--/#footermenu-->
 
 <div id="copyright">
-<h5>Beer Site</h5>
+<h5>TrinkenVerein</h5>
 </div>
 <!--/#copyright-->
 

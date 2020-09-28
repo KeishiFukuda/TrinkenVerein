@@ -10,7 +10,7 @@ import javax.sql.DataSource;
 
 import entity.UserInfoEntity;
 
-public class UserDao {
+public class UserRegisterDao {
 	/*
 	 * ユーザー登録処理
 	 */
@@ -21,15 +21,14 @@ public class UserDao {
 			DataSource dataSource = (DataSource) envContext.lookup("jdbc/beerserver");
 			Connection connection = dataSource.getConnection();
 
-
+			//TODO DBeaverでSQLチェックする
 			//SQL
-			String sql ="insert into users (" + "  user_id," + "  \"password\"" + "  user_name," +  " age" +") values ("
-					+ "  ?," + "  ?," + "  ?," +  "  ?," + ");";
+			String sql = "insert user_id, user_name, \"password\" from users"
+					+ " where user_id = ? and \"password\" = ?;";
 			PreparedStatement ps = connection.prepareStatement(sql);
 			ps.setString(1, condition.getUserId());
 			ps.setString(2, condition.getPassword());
-			ps.setString(3, condition.getUserName());
-			ps.setString(4, condition.getAge());
+
 			ResultSet resultSet = ps.executeQuery();
 
 			UserInfoEntity userInfoEntity = null;
@@ -38,7 +37,6 @@ public class UserDao {
 				userInfoEntity.setUserId(resultSet.getString("user_id"));
 				userInfoEntity.setUserName(resultSet.getString("user_name"));
 				userInfoEntity.setPassword(resultSet.getString("password"));
-				userInfoEntity.setAge(resultSet.getString("age"));
 			}
 			resultSet.close();
 			ps.close();
@@ -46,7 +44,9 @@ public class UserDao {
 
 			return userInfoEntity;
 
-		} catch (Exception e) {
+
+
+		}catch(Exception e){
 			e.printStackTrace();
 			return condition;
 		}
@@ -84,10 +84,13 @@ public class UserDao {
 
 			return userInfoEntity;
 
-		} catch (Exception e) {
+
+
+		}catch(Exception e){
 			e.printStackTrace();
 			return condition;
 		}
 	}
+
 
 }

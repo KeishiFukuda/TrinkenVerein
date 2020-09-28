@@ -37,7 +37,7 @@
 <li class="ddmenu-title">Service
 	<ul class="ddmenu">
 	<li><a href="service.jsp">サイト紹介</a></li>
-	<li><a href="recruit.jsp">あなたにお勧めのビール検索</a></li>
+	<li><a href="${pageContext.request.contextPath}/RecruitInitServlet">あなたにお勧めのビール検索</a></li>
 
 	</ul>
 </li>
@@ -95,7 +95,7 @@
 <h4>あなたにお勧めのビール検索</h4>
 <p>簡単な質問に答えるだけでおすすめのビールを紹介します。</p>
 <p>下記ボタンよりお進みください。</p>
-<p class="btn1"><a href="recruit.jsp">ビール検索してみる</a></p>
+<p class="btn1"><a href="${pageContext.request.contextPath}/RecruitInitServlet">ビール検索してみる</a></p>
 </div>
 </div>
 

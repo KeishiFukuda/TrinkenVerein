@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -18,19 +19,16 @@ public class InformationServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		//リクエストパラメータを取得
-		String registerId = request.getParameter("registerId");
 
-		//入力値をプロパティに設定
-		BeerEntity beerEntity = new BeerEntity();
-		beerEntity.setRegisterId(registerId);
+		//リクエストスコープからDB検索条件のインスタンスを取得
+		BeerEntity beerCondition = (BeerEntity) request.getAttribute("beerCondition");
 
 		//ProductLogicを実行し結果を設定
 		ProductLogic productLogic = new ProductLogic();
-		BeerEntity result= productLogic.execute(beerEntity);
+		List<BeerEntity> beerResultList = productLogic.execute(beerCondition);
 
-		// リクエストスコープに保存する
-		request.setAttribute("beerEntity", result);
+		// リクエストスコープに結果設定を保存
+		request.setAttribute("beerResultList", beerResultList);
 
 		//Information.jspにフォワード
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/information.jsp");

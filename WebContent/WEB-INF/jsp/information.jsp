@@ -1,9 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="entity.BeerEntity"%>
-<!--リクエストスコープからインスタンスを取得する -->
-<%
-BeerEntity beerE = (BeerEntity) request.getAttribute("beerEntity");%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,10 +10,8 @@ BeerEntity beerE = (BeerEntity) request.getAttribute("beerEntity");%>
 <title>Insert title here</title>
 </head>
 <body>
-<h1>おすすめ結果</h1>
-<p>
-製品名：<%= beerE.getProductName() %>
-</p>
+	<h1>おすすめ結果</h1>
+	<p></p>
 
 </body>
 </html>

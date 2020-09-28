@@ -1,4 +1,4 @@
-package test;
+package init;
 
 import java.io.IOException;
 
@@ -9,8 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/TestInitServlet")
-public class TestInitServlet extends HttpServlet {
+import dto.QuestionDTO;
+
+@WebServlet("/RecruitInitServlet")
+public class RecruitInitServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -24,7 +26,7 @@ public class TestInitServlet extends HttpServlet {
 		question.setQuestionId("q1");
 		request.setAttribute("question", question);
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/questionTest.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/recruit.jsp");
 		dispatcher.forward(request, response);
 
 

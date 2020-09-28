@@ -33,5 +33,21 @@ public class UserDataDTO {
 	}
 
 
+	@Override
+	public String toString() {
+		StringBuffer sb = new StringBuffer();
+		sb.append(this.getClass().getName())
+		.append("{")
+		.append("userId=")
+		.append(getUserId())
+		.append(",UserName=")
+		.append(getUserName())
+		.append(",password=")
+		.append(getPassword())
+		.append("getPassword=")
+		.append(getAge())
+		.append("}");
+		return sb.toString();
+	}
 
 }

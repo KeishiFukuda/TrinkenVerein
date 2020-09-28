@@ -20,7 +20,7 @@ import service.RegisterService;
 /**
  * Servlet implementation class loginServlet
  */
-@WebServlet("/loginServlet")
+@WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -50,7 +50,7 @@ public class LoginServlet extends HttpServlet {
 			userDataDTO.setUserId(userId);
 			userDataDTO.setPassword(password);
 
-			UserInfoEntity userInfoEntity = registerService.registerUser(userDataDTO);
+			UserInfoEntity userInfoEntity = registerService.loginUser(userDataDTO);
 
 			//ログイン情報をセッションに保存
 			HttpSession session = request.getSession();

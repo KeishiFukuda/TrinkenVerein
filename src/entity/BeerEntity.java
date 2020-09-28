@@ -1,17 +1,17 @@
 package entity;
 
 public class BeerEntity {
-	private String registerId;
+	private Integer registerId;
 	private String productName;
 	private String classification;
 	private String introduction;
-	private String price;
+	private Integer price;
 	private String shopUrl;
 
-	public String getRegisterId() {
+	public Integer getRegisterId() {
 		return registerId;
 	}
-	public void setRegisterId(String registerId) {
+	public void setRegisterId(Integer registerId) {
 		this.registerId = registerId;
 	}
 	public String getProductName() {
@@ -32,10 +32,10 @@ public class BeerEntity {
 	public void setIntroduction(String introduction) {
 		this.introduction = introduction;
 	}
-	public String getPrice() {
+	public Integer getPrice() {
 		return price;
 	}
-	public void setPrice(String price) {
+	public void setPrice(Integer price) {
 		this.price = price;
 	}
 	public String getShopUrl() {

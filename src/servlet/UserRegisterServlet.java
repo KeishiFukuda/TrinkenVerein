@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.postgresql.util.PSQLException;
+
 import dto.UserDataDTO;
 import util.Util;
 
@@ -29,7 +31,8 @@ public class UserRegisterServlet extends HttpServlet {
 	}
 
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
 		String UserId = request.getParameter("user_id");
 		String Password = request.getParameter("password");
@@ -42,6 +45,12 @@ public class UserRegisterServlet extends HttpServlet {
 		userData.setUserId(UserId);
 		userData.setUserName(UserName);
 
+//		Checker.checkId(UserId);
+//		Checker.checkName(UserName);
+//		Checker.checkPassword(Password);
+		//Checker.checkAge(Age);
+
+
 		try {
 
 			String url = "jdbc:postgresql://localhost:5432/beerserver";
@@ -51,12 +60,13 @@ public class UserRegisterServlet extends HttpServlet {
 
 
 			Connection connection = DriverManager.getConnection(url, dbUser, dbPassword);
-			String sql ="insert into users (" + "  user_id," + "  user_name," + "  \"password\"" + ") values ("
-					+ "  ?," + "  ?," + "  ?" + ");";
+			String sql ="insert into users (" + "  user_id," + "  user_name," + "  \"password\"," + "age"+ ") values ("
+					+ "  ?," + "  ?," + "  ?," + "  ?" + ");";
 			PreparedStatement ps = connection.prepareStatement(sql);
 			ps.setString(1,UserId);
 			ps.setString(2,UserName);
-			ps.setString(3,Util.digest(Password));
+			ps.setString(3, Util.digest(Password));
+			ps.setString(4,Age);
 
 			ps.executeUpdate();
 
@@ -64,6 +74,9 @@ public class UserRegisterServlet extends HttpServlet {
 			connection.close();
 
 
+		} catch (PSQLException e) {
+			System.out.println("SQLエラー");
+			e.printStackTrace();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -74,5 +87,9 @@ public class UserRegisterServlet extends HttpServlet {
 
 
 	}
+
+
+
+
 
 }
