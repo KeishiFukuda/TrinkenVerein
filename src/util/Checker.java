@@ -5,9 +5,8 @@ import java.util.Calendar;
 
 public class Checker {
 
-	public static String checkId(String Id) throws IOException {
+	public static String checkId(String UserId) throws IOException {
 
-		String UserId = "";
 		while (true) {
 			if (!(UserId == null)) {
 				if (!(UserId.isEmpty())) {
@@ -15,25 +14,27 @@ public class Checker {
 						if (UserId.matches(".{5,20}")) {
 							break;
 						} else {
-							//System.out.println("登録済みのIDです。");
+							System.out.println("登録済みのIDです。");
 							continue;
 						}
 					} else {
-						//System.out.println("半角で入力してください");
+						System.out.println("半角で入力してください");
 						continue;
 					}
 				} else {
-					//System.out.println("IDが未入力です。");
+					System.out.println("IDが未入力です。");
 					continue;
 				}
+			}else {
+				System.out.println("null");
+				continue;
 			}
 		}
 
 		return UserId;
 	}
 
-	public static String checkName(String name) throws IOException {
-		String UserName = "";
+	public static String checkName(String UserName) throws IOException {
 		while (true) {
 			if (!(UserName == null)) {
 				if (!(UserName.isEmpty())) {
@@ -52,11 +53,10 @@ public class Checker {
 				continue;
 			}
 		}
-		return name;
+		return UserName;
 	}
 
-	public static String checkPassword(String password) throws IOException {
-		String Password = "";
+	public static String checkPassword(String Password) throws IOException {
 		while (true) {
 			if (!(Password == null)) {
 				if (!(Password.isEmpty())) {
@@ -139,7 +139,5 @@ public class Checker {
 		}
 
 	}
-
-
 
 }

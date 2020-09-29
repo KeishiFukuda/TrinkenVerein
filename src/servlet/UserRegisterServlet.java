@@ -26,6 +26,8 @@ public class UserRegisterServlet extends HttpServlet {
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+
 		doPost(request,response);
 
 	}
@@ -39,6 +41,7 @@ public class UserRegisterServlet extends HttpServlet {
 		String Age = request.getParameter("age");
 		String UserName = request.getParameter("user_name");
 
+
 		UserDataDTO userData = new UserDataDTO();
 		userData.setAge(Age);
 		userData.setPassword(Password);
@@ -48,7 +51,8 @@ public class UserRegisterServlet extends HttpServlet {
 //		Checker.checkId(UserId);
 //		Checker.checkName(UserName);
 //		Checker.checkPassword(Password);
-		//Checker.checkAge(Age);
+//		//Checker.checkAge(Age);
+
 
 
 		try {
@@ -67,6 +71,9 @@ public class UserRegisterServlet extends HttpServlet {
 			ps.setString(2,UserName);
 			ps.setString(3, Util.digest(Password));
 			ps.setString(4,Age);
+
+
+
 
 			ps.executeUpdate();
 

@@ -66,14 +66,15 @@ public class LoginServlet extends HttpServlet {
 					 application.setAttribute("USER_ID_SET", userIdSet);
 				}
 				userIdSet.add(userInfoEntity.getUserId());
-				//TODO URLチェック
+
 				// メニュー画面へ遷移
-				response.sendRedirect(request.getContextPath() + "/menu.jsp");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/menu.jsp");
+				dispatcher.forward(request, response);
 			} else {
 
 				// ログイン画面へ再遷移
 				request.setAttribute("message", "ユーザIDまたはパスワードが間違っています。");
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/login.jsp");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
 				dispatcher.forward(request, response);
 			}
 

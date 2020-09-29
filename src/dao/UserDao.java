@@ -62,9 +62,8 @@ public class UserDao {
 			DataSource dataSource = (DataSource) envContext.lookup("jdbc/beerserver");
 			Connection connection = dataSource.getConnection();
 
-			//TODO DBeaverでSQLチェックする
 			//SQL
-			String sql = "select user_id, \"password\" from users"
+			String sql = "select user_id, user_name, \"password\" from users"
 					+ " where user_id = ? and \"password\" = ?;";
 			PreparedStatement ps = connection.prepareStatement(sql);
 			ps.setString(1, condition.getUserId());
@@ -76,6 +75,7 @@ public class UserDao {
 			if (resultSet.next()) {
 				userInfoEntity = new UserInfoEntity();
 				userInfoEntity.setUserId(resultSet.getString("user_id"));
+				userInfoEntity.setUserName(resultSet.getString("user_name"));
 				userInfoEntity.setPassword(resultSet.getString("password"));
 			}
 			resultSet.close();

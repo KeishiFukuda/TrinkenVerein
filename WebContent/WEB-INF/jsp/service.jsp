@@ -17,6 +17,15 @@
 <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
+
+<style>
+
+h4:first-letter {
+  font-size: 2em;
+  color: #7172ac;
+}
+</style>
+
 </head>
 
 <body>
@@ -24,15 +33,15 @@
 <div id="container">
 
 <header>
-<h1 id="logo"><a href="index.jsp"><img src="images/title2.png"></a></h1>
+<h1 id="logo"><a href="index.html"><img src="images/title2.png"></a></h1>
 <!--PC用（901px以上端末）メニュー-->
 <nav id="menubar">
 <ul>
 
 <li class="ddmenu-title">Service
 	<ul class="ddmenu">
-	<li><a href="service.jsp">サイト紹介</a></li>
-	<li><a href="recruit.jsp">あなたにお勧めのビール検索</a></li>
+	<li><a href="${pageContext.request.contextPath}/ServiceInitServlet">サイト紹介</a></li>
+	<li><a href="${pageContext.request.contextPath}/RecruitInitServlet">あなたにお勧めのビール検索</a></li>
 
 	</ul>
 </li>
@@ -40,8 +49,8 @@
 
 <li class="ddmenu-title">Login
 <ul class="ddmenu">
-	<li><a href="login.jsp">ログインする</a></li>
-	<li><a href="newlogin.jsp">新規登録をする</a></li>
+	<li><a href="${pageContext.request.contextPath}/loginInitServlet">ログインする</a></li>
+	<li><a href="${pageContext.request.contextPath}/RegisterInitServlet">新規登録をする</a></li>
 
 	</ul>
 </li>
@@ -68,20 +77,38 @@
 <h2>Service<span>サイト紹介</span></h2>
 
 <div class="list">
-<figure><img src="images/111.jpg" alt=""></figure>
+<figure><img src="images/sora.jpg" alt=""></figure>
 <div class="text">
+
+
+<div>
 <h4>TrinkenVerein~トリンケンヴェレーヌ~</h4>
-<p>サイト紹介をご覧いただき、ありがとうございます。</p>
+</div>
+
+
+
+
+
+<p>サイト紹介をご覧いただき、ありがとうございます✨</p>
+<p>こちらのサイトはお酒を扱うサイトとなっております。</p>
+<p>20歳以下の方は20歳になってからご利用をお願い致します👮</p>
+</br>
 <p>まず初めにサイト名【TrinkenVerein~トリンケンヴェレーヌ~】とは、</p>
 <p>ドイツ語です。日本語に直すと【飲酒クラブ】という意味になります。</p>
-<p></p>
-<p>～ここにサイト紹介をもっと書く予定～</p>
-<p></p>
-<p>簡単な質問に答えていくだけで、</p>
-<p>ビールが好きな方、ビールが嫌いな方にもおすすめのビールを紹介致します。</p>
-<p>ぜひ一度ビール検索してみてください♬</p>
+<p><font color="red">飲酒推奨サイトです。</font></p>
+</br>
+<p>日本のビールだけでなく、あまり知られていない海外ビール🍺の、</p>
+<p>特徴や飲みやすさを紹介しております。紹介文へも注目していただけると幸いです。</p>
+</br>
 
-<p class="btn1"><a href="recruit.jsp">ビール検索してみる</a></p>
+<p>簡単な質問に答えていただくだけで、</p>
+<p>ビールが好きな方、ビールが嫌いな方にもおすすめのビールを紹介致します。</p>
+<p>気になるビール🍺がありましたら、購入サイトへつながっておりますので、</p>
+<p>一度ご賞味くださいませ✨</p>
+<p>ぜひ一度ビール検索してみてください♬</p>
+<p><font color="red">~飲みすぎは注意です。人生を狂わす可能性があります~</font></p>
+
+<p class="btn1"><a href="${pageContext.request.contextPath}/RecruitInitServlet">ビール検索してみる🍺</a></p>
 </div>
 </div>
 

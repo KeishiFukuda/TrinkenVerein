@@ -10,14 +10,15 @@ public class RegisterService {
 //	@Resource
 //	private UserDao userDao;
 
-	public UserInfoEntity registerUser(UserDataDTO userData) {
+
+	public UserInfoEntity registerUser(UserDataDTO userDataDTO) {
 		UserDao userDao = new UserDao();
 
 		UserInfoEntity condition = new UserInfoEntity();
-		condition.setUserId(userData.getUserId());
-		condition.setPassword(Util.digest(userData.getPassword()));
-		condition.setAge(userData.getAge());
-		condition.setUserName(userData.getUserName());
+		condition.setUserId(userDataDTO.getUserId());
+		condition.setPassword(Util.digest(userDataDTO.getPassword()));
+		condition.setAge(userDataDTO.getAge());
+		condition.setUserName(userDataDTO.getUserName());
 
 		UserInfoEntity userInfoEntity = userDao.registerUser(condition);
 
@@ -25,13 +26,13 @@ public class RegisterService {
 	}
 
 	//Login用サーブレットメソッド
-	public UserInfoEntity loginUser(UserDataDTO userData) {
+	public UserInfoEntity loginUser(UserDataDTO userDataDTO) {
 
 		UserDao userDao = new UserDao();
 
 		UserInfoEntity condition = new UserInfoEntity();
-		condition.setUserId(userData.getUserId());
-		condition.setPassword(Util.digest(userData.getPassword()));
+		condition.setUserId(userDataDTO.getUserId());
+		condition.setPassword(Util.digest(userDataDTO.getPassword()));
 
 		UserInfoEntity userInfoEntity = userDao.loginUser(condition);
 

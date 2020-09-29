@@ -12,17 +12,17 @@
  <h1>&emsp;</h1>
  <h2>&emsp;</h2>
 
- <center> <h3><font color="white" size="+3">Login screen</font></h3>
- </center>
+<h3><font color="white" size="+3">Login screen</font></h3>
+
 
 
     <div id="login">
        <form name='form-login'action="${pageContext.request.contextPath}/LoginServlet" method="post">
         <span class="fontawesome-user"></span>
-          <input type="text" name="user_name" value="user_name" placeholder="UserId">
+          <input type="text" name="userId" value="" placeholder="UserId">
 
         <span class="fontawesome-lock"></span>
-          <input type="password" name="password" value="password" placeholder="Password">
+          <input type="password" name="password" value="" placeholder="Password">
 
 
 
@@ -45,7 +45,7 @@
 <!--/#footermenu-->
 
 <div id="copyright">
-<center><h5>TrinkenVerein</h5></center>
+><h5>TrinkenVerein</h5>
 </div>
 <!--/#copyright-->
 

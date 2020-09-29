@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/input.css">
 </head>
 <body>
- <h1>&emsp;</h1> 
+ <h1>&emsp;</h1>
  <h2>&emsp;</h2>
 
  <center> <h3><font color="white" size="+3">New user registration</font></h3>
@@ -19,16 +19,16 @@
     <div id="login">
       <form name='form-login'action="${pageContext.request.contextPath}/UserRegisterServlet" method="post">
         <span class="fontawesome-user"></span>
-          <input type="text"  name="user_name"  value="user_name" placeholder="UseNamer">
+          <input type="text"  name="user_name"  value="" placeholder="UseNamer">
 
         <span class="fontawesome-user"></span>
-          <input type="text"  name="user_id"  value="user_id" placeholder="UserId">
+          <input type="text"  name="user_id"  value="" placeholder="UserId">
 
         <span class="fontawesome-lock"></span>
-          <input type="password"  name="password"  value="password" placeholder="Password">
+          <input type="password"  name="password"  value="" placeholder="Password">
 
          <span class="fontawesome-date"></span>
-          <input type="date"  name="age"  value="age" placeholder="age">
+          <input type="date"  name="age"  value="" placeholder="age">
 
 
 

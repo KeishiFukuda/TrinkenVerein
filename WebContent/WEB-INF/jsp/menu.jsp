@@ -26,7 +26,7 @@
 
 <body class="home">
 
-<div id="container">
+<div id="container"></div>
 
 <header>
 <h1 id="logo"><a href="index.html"><img src="images/title2.png"></a></h1>
@@ -36,7 +36,7 @@
 
 <li class="ddmenu-title">Service
 	<ul class="ddmenu">
-	<li><a href="service.jsp">サイト紹介</a></li>
+	<li><a href="${pageContext.request.contextPath}/ServiceInitServlet">サイト紹介</a></li>
 	<li><a href="${pageContext.request.contextPath}/RecruitInitServlet">あなたにお勧めのビール検索</a></li>
 
 	</ul>
@@ -52,14 +52,17 @@
 </li>
 
 <li class="ddmenu-title">Logout
-<ul class="ddmenu">
-	<li><a href="index.jsp">ログアウトする</a></li>
-
+	<ul class="ddmenu">
+		<li><a href="${pageContext.request.contextPath}/LogoutServlet">ログアウト</a></li>
 	</ul>
+
+
+<li class="ddmenu-title">
+		<ul>ようこそ${sessionScope.LOGIN_USER_ENTITY.userName}さん</ul>
 </li>
-
-
 </ul>
+
+
 </nav>
 <!--小さい端末用（900px以下端末）メニュー-->
 <nav id="menubar-s">
@@ -84,8 +87,8 @@
 <div class="text">
 <h4>サイト紹介</h4>
 <p>ビールが苦手な方、好きな方でもおススメできるビールを紹介するサイトです。</p>
-<p>上記のビール選択から簡単な質問に答えるだけでおすすめビールを紹介します。</p>
-<p class="btn1"><a href="service.html">もっとみる</a></p>
+<p>簡単なサイト紹介をしているのでご覧くださいませ。</p>
+<p class="btn1"><a href="${pageContext.request.contextPath}/ServiceInitServlet">もっとみる</a></p>
 </div>
 </div>
 
@@ -93,7 +96,7 @@
 <figure><img src="images/sample11.jpg" alt=""></figure>
 <div class="text">
 <h4>あなたにお勧めのビール検索</h4>
-<p>簡単な質問に答えるだけでおすすめのビールを紹介します。</p>
+<p>簡単な質問に答えていただくだけでおすすめのビールを紹介します。</p>
 <p>下記ボタンよりお進みください。</p>
 <p class="btn1"><a href="${pageContext.request.contextPath}/RecruitInitServlet">ビール検索してみる</a></p>
 </div>

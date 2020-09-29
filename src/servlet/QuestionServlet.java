@@ -10,8 +10,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dto.QuestionDTO;
+import entity.BeerEntity;
 
 @WebServlet("/QuestionServlet")
 public class QuestionServlet extends HttpServlet {
@@ -26,8 +28,8 @@ public class QuestionServlet extends HttpServlet {
 			throws ServletException, IOException {
 		List<String> questions = new ArrayList<String>();
 		//		questions.add("ビールが好き？or苦手？");  <== 初期値はinitServletで受け渡し。
-		questions.add("苦味・渋味orフルーティ");
-		questions.add("値段高い？or安い？");
+		questions.add("苦味・渋味orフルーティ 苦味が好きな方はYESを✨フルーティ好きはNOを✨");
+		questions.add("値段高い？or安い？ 高いビールはYESを✨安くておいしいビールはNOを✨");
 
 		QuestionDTO question = new QuestionDTO();
 		if (request.getParameter("questionId").equals("q1")) {
@@ -40,7 +42,13 @@ public class QuestionServlet extends HttpServlet {
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/recruit.jsp");
 				dispatcher.forward(request, response);
 			} else {
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/recruit.jsp");
+				BeerEntity beer = new BeerEntity();
+				beer.setClassification("A");
+
+				HttpSession session = request.getSession();
+				session.setAttribute("beerCondition", beer);
+
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/InformationServlet");
 				dispatcher.forward(request, response);
 			}
 
@@ -54,16 +62,34 @@ public class QuestionServlet extends HttpServlet {
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/recruit.jsp");
 				dispatcher.forward(request, response);
 			} else {
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/recruit.jsp");
+				BeerEntity beer = new BeerEntity();
+				beer.setClassification("B");
+
+				HttpSession session = request.getSession();
+				session.setAttribute("beerCondition", beer);
+
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/InformationServlet");
 				dispatcher.forward(request, response);
 			}
 
 		}else if(request.getParameter("questionId").equals("q3")) {
 			if(request.getParameter("answer").equals("A1")) {
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/recruit.jsp");
+				BeerEntity beer = new BeerEntity();
+				beer.setClassification("C");
+
+				HttpSession session = request.getSession();
+				session.setAttribute("beerCondition", beer);
+
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/InformationServlet");
 				dispatcher.forward(request, response);
 			}else {
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/recruit.jsp");
+				BeerEntity beer = new BeerEntity();
+				beer.setClassification("D");
+
+				HttpSession session = request.getSession();
+				session.setAttribute("beerCondition", beer);
+
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/InformationServlet");
 				dispatcher.forward(request, response);
 			}
 		}

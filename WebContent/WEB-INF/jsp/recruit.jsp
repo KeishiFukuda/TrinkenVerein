@@ -118,6 +118,27 @@ h4 {
 	color: #9e9e9e;
 }
 
+.button {
+  display       : inline-block;
+  border-radius : 5%;          /* 角丸       */
+  font-size     : 14pt;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 5px 42px;   /* 余白       */
+  background    : #ff7f00;     /* 背景色     */
+  color         : #ffffff;     /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  box-shadow    : 5px 5px 38px #666666;  /* 影の設定 */
+  border        : 2px solid #ff7f00;    /* 枠の指定 */
+}
+.button:hover {
+  box-shadow    : none;        /* カーソル時の影消去 */
+  color         : #ff7f00;     /* 背景色     */
+  background    : #ffffff;     /* 文字色     */
+}
+
+
 </style>
 </head>
 
@@ -133,8 +154,8 @@ h4 {
 
 <li class="ddmenu-title">Service
 	<ul class="ddmenu">
-	<li><a href="service.html">サイト紹介</a></li>
-	<li><a href="recruit.html">あなたにお勧めのビール検索</a></li>
+	<li><a href="${pageContext.request.contextPath}/ServiceInitServlet">サイト紹介</a></li>
+	<li><a href="${pageContext.request.contextPath}/recruitInitServlet">あなたにお勧めのビール検索</a></li>
 
 	</ul>
 </li>
@@ -142,8 +163,8 @@ h4 {
 
 <li class="ddmenu-title">Login
 <ul class="ddmenu">
-	<li><a href="login.html">ログインする</a></li>
-	<li><a href="newlogin.html">新規登録をする</a></li>
+	<li><a href="${pageContext.request.contextPath}/loginInitServlet">ログインする</a></li>
+	<li><a href="${pageContext.request.contextPath}/RegisterInitServlet">新規登録をする</a></li>
 
 	</ul>
 </li>
@@ -180,17 +201,25 @@ h4 {
 <div class="cp_ipradio">
 
 	<form action="${pageContext.request.contextPath}/QuestionServlet" method="post">
-	<input type="checkbox" name= "answer" value="A1">YES &nbsp;&nbsp;&nbsp;
-	<input type="checkbox" name= "answer" value="A2">NO &nbsp;&nbsp;&nbsp;
+<div class="cp_ipradio">
+	<label>
+	<input type="radio" class="option-input radio" name="answer" value="A1" checked />
+	YES
+	</label>
+	<label>
+	<input type="radio" class="option-input radio" name="answer" value="A2"/>
+	 NO
+	</label>
+</div>
+</br>
 	<input type="hidden" name="questionId" value="${question.questionId}"/>
-	<p class="btn1"><input type="submit" value="回答する"></p>
+	<input type="submit" value="回答する 🍺" class="button">
+
+
 	</form>
 </div>
 
 
-
-
-<p class="btn1"><a href="recruit.html">回答する</a></p>
 </div>
 </div>
 

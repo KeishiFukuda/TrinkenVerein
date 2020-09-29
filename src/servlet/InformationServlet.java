@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import entity.BeerEntity;
 import logic.ProductLogic;
@@ -20,8 +21,9 @@ public class InformationServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		//リクエストスコープからDB検索条件のインスタンスを取得
-		BeerEntity beerCondition = (BeerEntity) request.getAttribute("beerCondition");
+		//質問サーブレットからDB検索条件のインスタンスを取得
+		HttpSession session = request.getSession();
+		BeerEntity beerCondition = (BeerEntity)session.getAttribute("beerCondition");
 
 		//ProductLogicを実行し結果を設定
 		ProductLogic productLogic = new ProductLogic();

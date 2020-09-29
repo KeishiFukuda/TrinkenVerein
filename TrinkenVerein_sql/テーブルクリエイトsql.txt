@@ -1,0 +1,23 @@
+--table「beer」の作成
+create table beer(
+register_id     int         not null,
+classification  varchar(1),
+product_name    varchar(50) not null unique,
+image           varchar(50),
+heading         varchar(200),
+text_paragraph1 varchar(1200),
+text_paragraph2 varchar(1200),
+text_paragraph3 varchar(1200),
+price           int,
+shop_url        varchar(200),
+primary key (register_id)
+);
+
+create table users(
+user_id        varchar(20)  not null,
+password       varchar(32)   not null,
+user_name      varchar(120) not null,
+introduction   varchar(1000),
+age            varchar(20),
+primary key (user_id)
+);
