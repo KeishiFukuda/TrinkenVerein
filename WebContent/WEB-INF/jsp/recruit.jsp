@@ -182,7 +182,7 @@ h4 {
 <li><a href="#"><img src="images/icon_youtube.png" alt="TouTube"></a></li>
 </ul>
 </header>
-
+</div>
 
 <div id="contents">
 
