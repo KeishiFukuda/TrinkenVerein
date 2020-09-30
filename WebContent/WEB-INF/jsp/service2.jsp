@@ -36,7 +36,7 @@ h4 {
 <div id="container">
 
 <header>
-<h1 id="logo"><a href="index.html"><img src="images/title2.png"></a></h1>
+<h1 id="logo"><a href="${pageContext.request.contextPath}/MenuInitServlet"><img src="images/title2.png"></a></h1>
 <!--PC用（901px以上端末）メニュー-->
 <nav id="menubar">
 <ul>
@@ -71,7 +71,7 @@ h4 {
 <li><a href="#"><img src="images/icon_youtube.png" alt="TouTube"></a></li>
 </ul>
 </header>
-
+</div>
 
 <div id="contents">
 
@@ -83,7 +83,7 @@ h4 {
 <figure><img src="images/LemonBeer1.jpg" alt=""></figure>
 <div class="text">
 <h4>苦くなく、さっぱりとしたレモンビール♬</h4>
-</br>
+<br>
 <h5>レモンビール🍋</h5>
 <p>レモンビールとは、その名の通り、レモン風味のビールです。</p>
 <p>ビールにレモン果汁などをプラスして造られるため、麦芽使用比率が高く、</p>
@@ -105,7 +105,7 @@ h4 {
 <figure><img src="images/cherry.jpg" alt=""></figure>
 <div class="text">
 <h4>さくらんぼを漬け込んだフルーティなビール♬</h4>
-</br>
+<br>
 <h5>さくらんぼビール🍒</h5>
 <p>ベルギー特有のランビックビールに、クリーク（さくらんぼ）を漬け込んで発酵させたフルーツビールです。</p>
 <p>オーク樽で約1年間寝かせて作られます。時間と手間をかけて作られたフルーツビールは、</p>
@@ -126,7 +126,7 @@ h4 {
 <figure><img src="images/sweet2.png" alt=""></figure>
 <div class="text">
 <h4>黒糖で作ったより甘味が強いビール♬</h4>
-</br>
+<br>
 <h5>黒糖ビール🎂</h5>
 <p>沖縄の黒糖を加えてつくったデザートビールです。</p>
 <p>ベースとなっているのは、英国のスウィートスタウトで、クリームスタウトという別名もあるほど甘みの高いスタイル。</p>
@@ -148,7 +148,7 @@ h4 {
 <figure><img src="images/cat.jpg" alt=""></figure>
 <div class="text">
 <h4>コンビニでも購入できる飲みやすいビール♬</h4>
-</br>
+<br>
 <h5>水曜日のネコ😺</h5>
 
 <p>ヤッホーブルーイングは、海外で飲んだエールビールに魅せられた創業者が、</P>

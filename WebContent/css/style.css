@@ -467,7 +467,7 @@ ol {
 	background: rgba(0,0,0,0.8);	/*背景色*/
 	border-top: 1px solid #fff;		/*上の線の幅、線種、色*/
 	animation-name: opa1;		/*keyframes.cssで使う@keyframesの指定*/
-	animation-duration: 0.5s;	/*アニメーションの実行時間。0.5秒。*/
+	animation-duration: 0.3s;	/*アニメーションの実行時間。0.5秒。*/
 	animation-fill-mode: both;	/*待機中は最初のキーフレームを、完了後は最後のキーフレームを維持*/
 	font-size: 16px;	/*文字サイズ*/
 }

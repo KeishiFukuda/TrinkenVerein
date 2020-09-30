@@ -39,7 +39,7 @@ h4 {
 
 		<header>
 			<h1 id="logo">
-				<a href="index.html"><img src="images/title2.png"></a>
+				<a href="${pageContext.request.contextPath}/MenuInitServlet"><img src="images/title2.png"></a>
 			</h1>
 			<!--PC用（901px以上端末）メニュー-->
 			<nav id="menubar">

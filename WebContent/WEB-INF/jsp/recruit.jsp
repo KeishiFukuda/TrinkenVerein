@@ -191,7 +191,7 @@ h4 {
 <h2>Service<span>おススメビール検索</span></h2>
 
 <div class="list">
-<figure><img src="images/111.jpg" alt=""></figure>
+<figure><img src="images/question3.jpg" alt=""></figure>
 <div class="text">
 <h4>おススメのビールを検索するため質問にお答えください♬</h4>
 
@@ -211,7 +211,7 @@ h4 {
 	 NO
 	</label>
 </div>
-</br>
+<br>
 	<input type="hidden" name="questionId" value="${question.questionId}"/>
 	<input type="submit" value="回答する 🍺" class="button">
 

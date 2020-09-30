@@ -32,7 +32,7 @@ public class RegisterService {
 
 		UserInfoEntity condition = new UserInfoEntity();
 		condition.setUserId(userDataDTO.getUserId());
-		condition.setPassword(Util.digest(userDataDTO.getPassword()));
+		condition.setPassword(userDataDTO.getPassword());
 
 		UserInfoEntity userInfoEntity = userDao.loginUser(condition);
 

@@ -3,85 +3,79 @@ package util;
 import java.io.IOException;
 import java.util.Calendar;
 
+import dto.checkerDTO;
+
 public class Checker {
 
-	public static String checkId(String UserId) throws IOException {
+	public static checkerDTO checkId(String UserId) throws IOException {
+		checkerDTO cDTO = new checkerDTO();
 
-		while (true) {
+
 			if (!(UserId == null)) {
 				if (!(UserId.isEmpty())) {
 					if (UserId.matches("^[A-Za-z0-9]+$")) { //半角チェック
 						if (UserId.matches(".{5,20}")) {
-							break;
+							cDTO.setUserId(UserId);
+
 						} else {
-							System.out.println("登録済みのIDです。");
-							continue;
+							cDTO.setMessage("登録済みのIDです。");
+
 						}
 					} else {
-						System.out.println("半角で入力してください");
-						continue;
+						cDTO.setMessage("半角で入力してください");
 					}
 				} else {
-					System.out.println("IDが未入力です。");
-					continue;
-				}
-			}else {
-				System.out.println("null");
-				continue;
-			}
-		}
-
-		return UserId;
-	}
-
-	public static String checkName(String UserName) throws IOException {
-		while (true) {
-			if (!(UserName == null)) {
-				if (!(UserName.isEmpty())) {
-					if (UserName.matches(".{0.40}")) {
-						break;
-					} else {
-						//System.out.println("登録済みの名前です。");
-						continue;
-					}
-				} else {
-					//System.out.println("名前が未入力です。");
-					continue;
+					cDTO.setMessage("IDが未入力です。");
 				}
 			} else {
-				//nullチェック
-				continue;
+				cDTO.setMessage(null);
 			}
-		}
-		return UserName;
+
+
+		return cDTO;
 	}
 
-	public static String checkPassword(String Password) throws IOException {
-		while (true) {
-			if (!(Password == null)) {
-				if (!(Password.isEmpty())) {
-					if (Password.matches("^[A-Za-z0-9]+$")) { //半角チェック
-						if (Password.matches(".{4,8}")) {
-							break;
-						} else {
-							//System.out.println("登録済みのパスワードです。");
-							continue;
-						}
+	public static checkerDTO checkName(String UserName) throws IOException {
+		checkerDTO cDTO = new checkerDTO();
+			if (!(UserName == null)) {
+				if (!(UserName.isEmpty())) {
+					if (UserName.matches(".+")) {
+						cDTO.setUserName(UserName);
 					} else {
-						//System.out.println("半角で入力してください");
-						continue;
+						cDTO.setMessage("登録済みの名前です。");
 					}
 				} else {
-					//System.out.println("パスワードは4～8文字で入力してください。");
-					continue;
+					cDTO.setMessage("名前が未入力です。");
 				}
+			} else {
+				cDTO.setMessage("名前が未入力です。");
 			}
-		}
 
-		return Password;
+		return cDTO;
 	}
 
-	public static void checkAge(String[] args) {
+	public static checkerDTO checkPassword(String UserPassword) throws IOException {
+		checkerDTO cDTO = new checkerDTO();
+			if (!(UserPassword == null)) {
+				if (!(UserPassword.isEmpty())) {
+					if (UserPassword.matches("^[A-Za-z0-9]+$")) { //半角チェック
+						if (UserPassword.matches(".{4,8}")) {
+							cDTO.setUserPassword(UserPassword);
+						} else {
+							cDTO.setMessage("登録済みのパスワードです。");
+						}
+					} else {
+						cDTO.setMessage("半角で入力してください");
+					}
+				} else {
+					cDTO.setMessage("パスワードは4～8文字で入力してください。");
+				}
+			}
+
+		return cDTO;
+	}
+
+	public boolean checkAge(String[] args) {
 
 		//誕生日の生年月日
 		int yearBirth;
@@ -90,7 +84,7 @@ public class Checker {
 
 		//入力された引数が３つ以上か調べる
 		if (3 > args.length) {
-			return;
+			return false;
 		}
 
 		//引数をint型に変換し、年月日に入れる
@@ -100,17 +94,17 @@ public class Checker {
 			dayBirth = Integer.parseInt(args[2]);
 		} catch (NumberFormatException e) {
 			System.out.println("生年月日の取得に失敗しました");
-			return;
+			return false;
 		}
 
 		if (0 > yearBirth) {
-			return;
+			return false;
 		}
 		if ((1 > monthBirth) || (12 < monthBirth)) {
-			return;
+			return false;
 		}
 		if ((1 > dayBirth) || (31 < dayBirth)) {
-			return;
+			return false;
 		}
 
 		//現在の年月日
@@ -124,10 +118,8 @@ public class Checker {
 		monthToday = calendar.get(Calendar.MONTH) + 1;
 		dayToday = calendar.get(Calendar.DAY_OF_MONTH);
 
-		int age;
-
 		//西暦年から誕生年を引く
-		age = yearToday - yearBirth;
+		int age = yearToday - yearBirth;
 		if (monthToday < monthBirth) {
 			--age;
 		} else {
@@ -137,7 +129,10 @@ public class Checker {
 				}
 			}
 		}
-
+		if (age < 19) {
+			return false;
+		} else {
+			return true;
+		}
 	}
-
 }

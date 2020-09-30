@@ -15,6 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.postgresql.util.PSQLException;
 
 import dto.UserDataDTO;
+import dto.checkerDTO;
+import util.Checker;
 import util.Util;
 
 /**
@@ -36,10 +38,46 @@ public class UserRegisterServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		String UserId = request.getParameter("user_id");
-		String Password = request.getParameter("password");
+		boolean hasError = false;
+		checkerDTO nameDto = Checker.checkName(request.getParameter("user_name"));
+		String UserName = nameDto.getUserName();
+
+		checkerDTO idDto =Checker.checkId(request.getParameter("user_id"));
+		String UserId = idDto.getUserId();
+
+		checkerDTO passwordDto = Checker.checkPassword(request.getParameter("password"));
+		String Password = passwordDto.getUserPassword();
+
+
+		if(nameDto.getMessage() != null) {
+			request.setAttribute("nameMessage", nameDto);
+			hasError = true;
+		}
+
+		if(idDto.getMessage()!= null) {
+			request.setAttribute("idMessage", idDto);
+			hasError = true;
+		}
+
+		if(passwordDto.getMessage()!= null) {
+			request.setAttribute("passwordMessage",passwordDto);
+			hasError = true;
+		}
+		if(hasError) {
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/register.jsp");
+			dispatcher.forward(request, response);
+		}
+
+
+
+
+
+
+
+
+
 		String Age = request.getParameter("age");
-		String UserName = request.getParameter("user_name");
+
 
 
 		UserDataDTO userData = new UserDataDTO();
@@ -48,10 +86,7 @@ public class UserRegisterServlet extends HttpServlet {
 		userData.setUserId(UserId);
 		userData.setUserName(UserName);
 
-//		Checker.checkId(UserId);
-//		Checker.checkName(UserName);
-//		Checker.checkPassword(Password);
-//		//Checker.checkAge(Age);
+
 
 
 
