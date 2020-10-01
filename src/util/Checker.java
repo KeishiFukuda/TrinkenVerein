@@ -30,12 +30,12 @@ public class Checker {
 							return UserId;
 
 						} else {
-							idMessage ="5～20文字で入力してください";
+							idMessage ="5～20文字で入力してください。";
 							return  idMessage;
 
 						}
 					} else {
-						idMessage ="半角で入力してください";
+						idMessage ="半角で入力してください。";
 						return idMessage;
 					}
 				}else {
@@ -88,11 +88,11 @@ public class Checker {
 						return passwordMessage ;
 					}
 				} else {
-					passwordMessage = "半角で入力してください";
+					passwordMessage = "半角で入力してください。";
 					return passwordMessage ;
 				}
 			} else {
-				passwordMessage = "パスワードは4～32文字で入力してください。";
+				passwordMessage = "パスワードは4～8文字で入力してください。";
 				return passwordMessage;
 			}
 		}else {
@@ -120,12 +120,18 @@ public class Checker {
 			if (7305 <= days) {
 				return Birthday;
 
+
 			} else {
+				if(7304==days) {
+					birthdayMessage = "ちょっと早いけど HappyBirthday!、明日ご来訪ください。";
+					return birthdayMessage;
+				}
+
 				 birthdayMessage = "お酒は20歳を超えてから！！！！！！";
 				return birthdayMessage;
 			}
 		} else {
-			birthdayMessage ="誕生日を入力してください";
+			birthdayMessage ="誕生日を入力してください。";
 			return  birthdayMessage;
 		}
 

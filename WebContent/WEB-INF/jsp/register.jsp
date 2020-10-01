@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en-US">
+<html>
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
     <title>Registration</title>
 
     <link rel="stylesheet" href="css/input.css">
@@ -19,7 +19,7 @@
     <div id="login">
       <form name='form-login'action="${pageContext.request.contextPath}/UserRegisterServlet" method="post">
         <span class="fontawesome-user"></span>
-          <input type="text"  name="user_name"  value="" placeholder="UseNamer 英数字40文字以内">
+          <input type="text"  name="user_name"  value="" placeholder="UseName 英数字40文字以内">
 			<p><font color="white">${nameMessage}</font></p>
         <span class="fontawesome-user"></span>
           <input type="text"  name="user_id"  value="" placeholder="UserId 英数字5～20文字">
