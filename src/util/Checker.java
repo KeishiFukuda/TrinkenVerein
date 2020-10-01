@@ -1,138 +1,134 @@
 package util;
 
 import java.io.IOException;
-import java.util.Calendar;
+import java.text.ParseException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 
-import dto.checkerDTO;
+import dto.UserDataDTO;
+import entity.UserInfoEntity;
+import service.UserService;
 
 public class Checker {
 
-	public static checkerDTO checkId(String UserId) throws IOException {
-		checkerDTO cDTO = new checkerDTO();
+	public static String checkId(String UserId) throws IOException {
+		String idMessage = null;
+		UserDataDTO user = new UserDataDTO();
+		user.setUserId(UserId);
+
+		UserService service = new UserService();
+		UserInfoEntity entity = service.checkUser(user);
 
 
-			if (!(UserId == null)) {
-				if (!(UserId.isEmpty())) {
+
+		if (!(UserId == null)) {
+			if (!(UserId.isEmpty())) {
+				if(entity == null) {
 					if (UserId.matches("^[A-Za-z0-9]+$")) { //半角チェック
 						if (UserId.matches(".{5,20}")) {
-							cDTO.setUserId(UserId);
+							return UserId;
 
 						} else {
-							cDTO.setMessage("登録済みのIDです。");
+							idMessage ="5～20文字で入力してください";
+							return  idMessage;
 
 						}
 					} else {
-						cDTO.setMessage("半角で入力してください");
+						idMessage ="半角で入力してください";
+						return idMessage;
 					}
-				} else {
-					cDTO.setMessage("IDが未入力です。");
+				}else {
+					idMessage ="IDが重複しています。";
+					return idMessage;
 				}
 			} else {
-				cDTO.setMessage(null);
+				idMessage ="IDが未入力です。";
+				return idMessage;
 			}
+		} else {
+			idMessage ="IDが未入力です。";
+			return idMessage;
+		}
 
 
-		return cDTO;
 	}
 
-	public static checkerDTO checkName(String UserName) throws IOException {
-		checkerDTO cDTO = new checkerDTO();
-			if (!(UserName == null)) {
-				if (!(UserName.isEmpty())) {
-					if (UserName.matches(".+")) {
-						cDTO.setUserName(UserName);
-					} else {
-						cDTO.setMessage("登録済みの名前です。");
-					}
+	public static String checkName(String UserName) throws IOException {
+		String nameMessage = null;
+		if (!(UserName == null)) {
+			if (!(UserName.isEmpty())) {
+				if (UserName.matches(".{0,40}")) {
+					return UserName;
 				} else {
-					cDTO.setMessage("名前が未入力です。");
+					nameMessage = "0～40文字で入力してください。";
+					return nameMessage;
 				}
 			} else {
-				cDTO.setMessage("名前が未入力です。");
+				nameMessage = "名前が未入力です。";
+				return nameMessage;
 			}
+		} else {
+			nameMessage = "名前が未入力です。";
+			return nameMessage;
+		}
 
-		return cDTO;
+
 	}
 
-	public static checkerDTO checkPassword(String UserPassword) throws IOException {
-		checkerDTO cDTO = new checkerDTO();
-			if (!(UserPassword == null)) {
-				if (!(UserPassword.isEmpty())) {
-					if (UserPassword.matches("^[A-Za-z0-9]+$")) { //半角チェック
-						if (UserPassword.matches(".{4,8}")) {
-							cDTO.setUserPassword(UserPassword);
-						} else {
-							cDTO.setMessage("登録済みのパスワードです。");
-						}
+	public static String checkPassword(String UserPassword) throws IOException {
+		String passwordMessage = null;
+		if (!(UserPassword == null)) {
+			if (!(UserPassword.isEmpty())) {
+				if (UserPassword.matches("^[A-Za-z0-9]+$")) { //半角チェック
+					if (UserPassword.matches(".{4,8}")) {
+						return UserPassword;
 					} else {
-						cDTO.setMessage("半角で入力してください");
+						passwordMessage = "パスワードは4～8文字で入力してください。";
+						return passwordMessage ;
 					}
 				} else {
-					cDTO.setMessage("パスワードは4～8文字で入力してください。");
+					passwordMessage = "半角で入力してください";
+					return passwordMessage ;
 				}
+			} else {
+				passwordMessage = "パスワードは4～32文字で入力してください。";
+				return passwordMessage;
 			}
+		}else {
+			passwordMessage = "パスワードは4～8文字で入力してください。";
+			return passwordMessage;
+		}
 
-		return cDTO;
+
 	}
 
-	public boolean checkAge(String[] args) {
 
-		//誕生日の生年月日
-		int yearBirth;
-		int monthBirth;
-		int dayBirth;
 
-		//入力された引数が３つ以上か調べる
-		if (3 > args.length) {
-			return false;
-		}
+	public static String checkAge(String Birthday) throws ParseException {
+		String birthdayMessage = null;
+		if (!(Birthday.isEmpty())) {
 
-		//引数をint型に変換し、年月日に入れる
-		try {
-			yearBirth = Integer.parseInt(args[0]);
-			monthBirth = Integer.parseInt(args[1]);
-			dayBirth = Integer.parseInt(args[2]);
-		} catch (NumberFormatException e) {
-			System.out.println("生年月日の取得に失敗しました");
-			return false;
-		}
+		DateTimeFormatter f = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
-		if (0 > yearBirth) {
-			return false;
-		}
-		if ((1 > monthBirth) || (12 < monthBirth)) {
-			return false;
-		}
-		if ((1 > dayBirth) || (31 < dayBirth)) {
-			return false;
-		}
+		LocalDate d1 = LocalDate.parse(Birthday, f);
+		LocalDate d2 = LocalDate.now();
 
-		//現在の年月日
-		int yearToday;
-		int monthToday;
-		int dayToday;
+		//日数など特定の単位での期間を計算する
+		long days = ChronoUnit.DAYS.between(d1, d2);
 
-		//今日の生年月日を変数に代入
-		Calendar calendar = Calendar.getInstance();
-		yearToday = calendar.get(Calendar.YEAR);
-		monthToday = calendar.get(Calendar.MONTH) + 1;
-		dayToday = calendar.get(Calendar.DAY_OF_MONTH);
+			if (7305 <= days) {
+				return Birthday;
 
-		//西暦年から誕生年を引く
-		int age = yearToday - yearBirth;
-		if (monthToday < monthBirth) {
-			--age;
-		} else {
-			if (monthToday == monthBirth) {
-				if (dayBirth < dayToday) {
-					--age;
-				}
+			} else {
+				 birthdayMessage = "お酒は20歳を超えてから！！！！！！";
+				return birthdayMessage;
 			}
-		}
-		if (age < 19) {
-			return false;
 		} else {
-			return true;
+			birthdayMessage ="誕生日を入力してください";
+			return  birthdayMessage;
 		}
+
+
 	}
 }

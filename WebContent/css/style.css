@@ -263,7 +263,7 @@ footer .pr {display: block;}
 /*ボックス全体*/
 #footermenu {
 	overflow: hidden;
-	padding: 20px 3%;		/*上下、左右へのボックス内の余白*/
+	padding: 5px 3%;		/*上下、左右へのボックス内の余白*/
 	background: #ed7500;	/*背景色*/
 }
 /*リンクテキスト*/
@@ -278,7 +278,7 @@ footer .pr {display: block;}
 /*１行分の設定*/
 #footermenu ul {
 	float: left;		/*左に回り込み*/
-	width: 23%;			/*幅。今回は４列作っているので、この数字と下のpadding-rightとpadding-leftを合計した数字が１列分になる。(23%＋1%＋1%)×4列＝100%*/
+	width: 98%;		/*幅。この数字と下のpadding-rightとpadding-leftを合計した数字が１列分になる。23%＋1%＋1%＝100%*/
 	padding-right: 1%;	/*右に空ける余白*/
 	padding-left: 1%;	/*左に空ける余白*/
 	text-align: left;	/*テキストを左寄せ*/

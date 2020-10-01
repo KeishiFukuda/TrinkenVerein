@@ -1,9 +1,7 @@
 package servlet;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
+import java.text.ParseException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,16 +10,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.postgresql.util.PSQLException;
-
 import dto.UserDataDTO;
-import dto.checkerDTO;
+import service.UserService;
 import util.Checker;
-import util.Util;
 
-/**
- * ユーザー登録サーブレット
- */
 @WebServlet("/UserRegisterServlet")
 public class UserRegisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -39,99 +31,54 @@ public class UserRegisterServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		boolean hasError = false;
-		checkerDTO nameDto = Checker.checkName(request.getParameter("user_name"));
-		String UserName = nameDto.getUserName();
 
-		checkerDTO idDto =Checker.checkId(request.getParameter("user_id"));
-		String UserId = idDto.getUserId();
+		String name = request.getParameter("user_name");
+		String id = request.getParameter("user_id");
+		String password = request.getParameter("password");
+		String birthday = request.getParameter("age");
 
-		checkerDTO passwordDto = Checker.checkPassword(request.getParameter("password"));
-		String Password = passwordDto.getUserPassword();
-
-
-		if(nameDto.getMessage() != null) {
-			request.setAttribute("nameMessage", nameDto);
+		if(Checker.checkName(name) != name) {
+			request.setAttribute("nameMessage", Checker.checkName(name));
 			hasError = true;
 		}
-
-		if(idDto.getMessage()!= null) {
-			request.setAttribute("idMessage", idDto);
+		if(Checker.checkId(id) != id) {
+			request.setAttribute("idMessage", Checker.checkId(id));
 			hasError = true;
 		}
-
-		if(passwordDto.getMessage()!= null) {
-			request.setAttribute("passwordMessage",passwordDto);
+		if(Checker.checkPassword(password) != password) {
+			request.setAttribute("passwordMessage", Checker.checkPassword(password));
 			hasError = true;
 		}
+		try {
+			if(Checker.checkAge(birthday) != birthday) {
+				request.setAttribute("ageMessage", Checker.checkAge(birthday));
+				hasError = true;
+			}
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+
+
+
 		if(hasError) {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/register.jsp");
 			dispatcher.forward(request, response);
+			return;
 		}
 
-
-
-
-
-
-
-
-
-		String Age = request.getParameter("age");
-
-
+		UserService service =  new UserService();
 
 		UserDataDTO userData = new UserDataDTO();
-		userData.setAge(Age);
-		userData.setPassword(Password);
-		userData.setUserId(UserId);
-		userData.setUserName(UserName);
 
+		userData.setUserName(name);
+		userData.setUserId(id);
+		userData.setPassword(password);
+		userData.setAge(birthday);
 
-
-
-
-		try {
-
-			String url = "jdbc:postgresql://localhost:5432/beerserver";
-			String dbUser = "postgres";
-			String dbPassword = "root";
-			Class.forName("org.postgresql.Driver");
-
-
-			Connection connection = DriverManager.getConnection(url, dbUser, dbPassword);
-			String sql ="insert into users (" + "  user_id," + "  user_name," + "  \"password\"," + "age"+ ") values ("
-					+ "  ?," + "  ?," + "  ?," + "  ?" + ");";
-			PreparedStatement ps = connection.prepareStatement(sql);
-			ps.setString(1,UserId);
-			ps.setString(2,UserName);
-			ps.setString(3, Util.digest(Password));
-			ps.setString(4,Age);
-
-
-
-
-			ps.executeUpdate();
-
-			ps.close();
-			connection.close();
-
-
-		} catch (PSQLException e) {
-			System.out.println("SQLエラー");
-			e.printStackTrace();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		service.registerUser(userData);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/registerSuccess.jsp");
 		dispatcher.forward(request, response);
 
-
-
 	}
-
-
-
-
-
 }

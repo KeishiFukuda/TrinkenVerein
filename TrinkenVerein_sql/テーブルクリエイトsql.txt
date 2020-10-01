@@ -1,3 +1,7 @@
+--database作成--
+
+create database beerserver;
+
 --table「beer」の作成
 create table beer(
 register_id     int         not null,
@@ -15,9 +19,8 @@ primary key (register_id)
 
 create table users(
 user_id        varchar(20)  not null,
-password       varchar(32)   not null,
 user_name      varchar(120) not null,
-introduction   varchar(1000),
+password       varchar(32)   not null,
 age            varchar(20),
 primary key (user_id)
 );

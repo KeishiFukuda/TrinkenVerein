@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 
 import dto.UserDataDTO;
 import entity.UserInfoEntity;
-import service.RegisterService;
+import service.UserService;
 
 /**
  * Servlet implementation class loginServlet
@@ -45,12 +45,12 @@ public class LoginServlet extends HttpServlet {
 		//LoginFormValidator.validate(loginForm);
 
 		try {
-			RegisterService registerService = new RegisterService();
+			UserService userService = new UserService();
 			UserDataDTO userDataDTO = new UserDataDTO();
 			userDataDTO.setUserId(userId);
 			userDataDTO.setPassword(password);
 
-			UserInfoEntity userInfoEntity = registerService.loginUser(userDataDTO);
+			UserInfoEntity userInfoEntity = userService.loginUser(userDataDTO);
 
 			//ログイン情報をセッションに保存
 			HttpSession session = request.getSession();

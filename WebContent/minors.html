@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -13,7 +12,7 @@
 </head>
 <body>
 <div style="text-align:center">
-<h1><img src="images/age.png"></h1>
+<h1><img src="images/no.jpg"></h1>
 </div>
 </body>
 <style>
@@ -30,7 +29,7 @@ background-size: cover;
 }
 
 #M_introWrap{
-	width:440px;
+	width:540px;
 	margin:50px auto;
 	border:2px solid #ccc;
 	background:#fff;
@@ -72,20 +71,22 @@ background-size: cover;
 
 <div id="M_introWrap">
 
-	<div id="M_introContent">
-		<h2><font color="red" size=4>年齢認証</font></h2>
-		<p> 当サイトはお酒を扱うサイトとなっております。</p>
-		<p>法令に基づき年齢確認をさせていただいております。</p>
 
+		<h2 style="text-align: center"><font color="red" size=4>未成年者が飲酒をすると下記のような悪影響を及ぼします！</font></h2>
+
+		<p  style="text-align: center">・脳の機能を低下させるおそれがある。</p>
+        <p  style="text-align: center">・肝臓をはじめとする臓器に障害を起こしやすくなる。</p>
+        <p  style="text-align: center">・性ホルモンに異常が起きるおそれがある。</p>
+        <p  style="text-align: center">・アルコール依存症になりやすくなる。</p>
+	    <p style="text-align: center"><img src="images/out2.jpg"></p>
 		<div class="M_section">
 
-			<h3>あなたは20歳以上ですか？</h3>
-			<div class="M_button"><a href="${pageContext.request.contextPath}/MenuInitServlet">はい</a><a href="minors.html">いいえ</a></div>
-	 	 </div>
+	    <h3 style="text-align: center">20歳になってからのご利用をお待ちしております。</h3>
 
 
 	</div>
 
 </div>
 </html>
+
 

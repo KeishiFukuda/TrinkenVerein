@@ -13,6 +13,9 @@ import javax.sql.DataSource;
 import entity.BeerEntity;
 
 public class BeerDao {
+	/*
+	 * 「おススメビール検索」処理
+	 */
 	public List<BeerEntity> find(BeerEntity beerCondition) {
 
 		List<BeerEntity> beerResultList = new ArrayList<>();

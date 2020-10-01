@@ -21,16 +21,23 @@
   <%--ログイン失敗時表示「ユーザIDまたはパスワードが間違っています。」--%>
   <c:if test="${not empty message}">
    <div style="text-align: center">
-    <font color="red">${message}</font>
+    <span style="color:red">${message}</span>
+   </div>
+  </c:if>
+
+  <%--未ログイン時表示「おススメビール検索をご利用の方は、ログインをお願いします。」--%>
+  <c:if test="${not empty loginRequestInformation}">
+   <div style="text-align: center">
+    <span style="color:yellow">${loginRequestInformation}</span>
    </div>
   </c:if>
 
   <div id="login">
    <form name='form-login' action="${pageContext.request.contextPath}/LoginServlet" method="post">
     <span class="fontawesome-user"></span>
-    <input type="text" name="userId" value="" placeholder="UserId">
+    <input type="text" name="userId" value="" placeholder="UserId 英数字5～20文字">
     <span class="fontawesome-lock"></span>
-    <input type="password" name="password" value="" placeholder="Password">
+    <input type="password" name="password" value="" placeholder="Password 英数字4～8文字">
     <input type="submit" value="Login">
 
     <ul>
