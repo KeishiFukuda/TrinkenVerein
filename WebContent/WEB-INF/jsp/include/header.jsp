@@ -7,13 +7,13 @@
    <a href="${pageContext.request.contextPath}/MenuInitServlet"><img src="images/title2.png"></a>
   </h1>
 
-  <!--PC用（901px以上端末）メニュー-->
+
   <nav id="menubar">
    <ul>
     <li class="ddmenu-title">Service▾
      <ul class="ddmenu">
       <li><a href="${pageContext.request.contextPath}/ServiceInitServlet">サイト紹介</a></li>
-      <li><a href="${pageContext.request.contextPath}/RecruitInitServlet">あなたにお勧めのビール検索</a></li>
+      <li><a href="${pageContext.request.contextPath}/QuestionInitServlet">あなたにお勧めのビール検索</a></li>
      </ul>
     </li>
 
@@ -38,7 +38,7 @@
    </ul>
   </nav>
 
-  <!--小さい端末用（900px以下端末）メニュー-->
+
   <nav id="menubar-s">
    <ul class="icon">
     <li><a href="#"><img src="images/icon_facebook.png" alt="Facebook"></a></li>

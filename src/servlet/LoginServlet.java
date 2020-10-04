@@ -1,11 +1,8 @@
 package servlet;
 
 import java.io.IOException;
-import java.util.HashSet;
-import java.util.Set;
 
 import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -57,22 +54,11 @@ public class LoginServlet extends HttpServlet {
 			session.setAttribute("LOGIN_USER_ENTITY", userInfoEntity);
 
 			if (userInfoEntity != null) {
-				//アプリケーションスコープにユーザーIDを追加する
 
-				ServletContext application = request.getServletContext();
-				Set<String> userIdSet = (Set<String>)application.getAttribute("USER_ID_SET");
-				if(userIdSet == null) {
-					 userIdSet = new HashSet<String>();
-					 application.setAttribute("USER_ID_SET", userIdSet);
-				}
-				userIdSet.add(userInfoEntity.getUserId());
-
-				// メニュー画面へ遷移
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/menu.jsp");
 				dispatcher.forward(request, response);
 			} else {
 
-				// ログイン画面へ再遷移
 				request.setAttribute("message", "ユーザIDまたはパスワードが間違っています。");
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
 				dispatcher.forward(request, response);

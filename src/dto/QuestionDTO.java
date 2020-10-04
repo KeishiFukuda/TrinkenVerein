@@ -8,7 +8,6 @@ public class QuestionDTO implements Serializable{
 
 	private String question;
 	private String questionId;
-	private String result;
 
 	public String getQuestion() {
 		return question;

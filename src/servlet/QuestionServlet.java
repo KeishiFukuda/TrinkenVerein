@@ -39,7 +39,7 @@ public class QuestionServlet extends HttpServlet {
 
 				request.setAttribute("question", question);
 
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/recruit.jsp");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/question.jsp");
 				dispatcher.forward(request, response);
 			} else {
 				BeerEntity beer = new BeerEntity();
@@ -48,7 +48,7 @@ public class QuestionServlet extends HttpServlet {
 				HttpSession session = request.getSession();
 				session.setAttribute("beerCondition", beer);
 
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/InformationServlet");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/ResultServlet");
 				dispatcher.forward(request, response);
 			}
 
@@ -59,7 +59,7 @@ public class QuestionServlet extends HttpServlet {
 
 				request.setAttribute("question", question);
 
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/recruit.jsp");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/question.jsp");
 				dispatcher.forward(request, response);
 			} else {
 				BeerEntity beer = new BeerEntity();
@@ -68,7 +68,7 @@ public class QuestionServlet extends HttpServlet {
 				HttpSession session = request.getSession();
 				session.setAttribute("beerCondition", beer);
 
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/InformationServlet");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/ResultServlet");
 				dispatcher.forward(request, response);
 			}
 
@@ -80,7 +80,7 @@ public class QuestionServlet extends HttpServlet {
 				HttpSession session = request.getSession();
 				session.setAttribute("beerCondition", beer);
 
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/InformationServlet");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/ResultServlet");
 				dispatcher.forward(request, response);
 			}else {
 				BeerEntity beer = new BeerEntity();
@@ -89,7 +89,7 @@ public class QuestionServlet extends HttpServlet {
 				HttpSession session = request.getSession();
 				session.setAttribute("beerCondition", beer);
 
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/InformationServlet");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/ResultServlet");
 				dispatcher.forward(request, response);
 			}
 		}
@@ -97,4 +97,3 @@ public class QuestionServlet extends HttpServlet {
 	}
 
 }
-//ネームは変えない、hidden属性でquestionIDをそれぞれの質問に振る

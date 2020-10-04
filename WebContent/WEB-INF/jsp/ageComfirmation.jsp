@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Beer Site</title>
+<title>年齢認証</title>
 <link rel="stylesheet" type="text/css" href="/design/ショップID/m_sys_common.css">
 <link rel="stylesheet" type="text/css" href="/css/shop/import.css">
 
@@ -17,10 +17,6 @@
 </div>
 </body>
 <style>
-
-
-
-
 body{
 background-color: #fff4ee;
 background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' %3E%3Cdefs%3E%3ClinearGradient id='a' x1='0' x2='0' y1='0' y2='1'%3E%3Cstop offset='0' stop-color='%23ff9113'/%3E%3Cstop offset='1' stop-color='%23c3aa1c'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpattern id='b' width='24' height='24' patternUnits='userSpaceOnUse'%3E%3Ccircle fill='%23fff4ee' cx='12' cy='12' r='12'/%3E%3C/pattern%3E%3Crect width='100%25' height='100%25' fill='url(%23a)'/%3E%3Crect width='100%25' height='100%25' fill='url(%23b)' fill-opacity='0.1'/%3E%3C/svg%3E");
@@ -28,6 +24,7 @@ background-attachment: fixed;
 background-size: cover;
 
 }
+
 
 #M_introWrap{
 	width:440px;
@@ -60,7 +57,8 @@ background-size: cover;
 	line-height:32px;
 	margin: 0 auto;
 	display:block;
-	text-decoration:none;
+	text-align: center;
+	text-decoration: none;
 	float:left;
 	margin-left:40px;
 }

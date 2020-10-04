@@ -32,6 +32,7 @@ public class UserRegisterServlet extends HttpServlet {
 
 		boolean hasError = false;
 
+		request.setCharacterEncoding("UTF-8");
 		String name = request.getParameter("user_name");
 		String id = request.getParameter("user_id");
 		String password = request.getParameter("password");

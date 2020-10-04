@@ -14,12 +14,10 @@
 
  <h3 style="text-align: center"><font color="white" size="+3">New user registration</font></h3>
 
-
-
     <div id="login">
       <form name='form-login'action="${pageContext.request.contextPath}/UserRegisterServlet" method="post">
         <span class="fontawesome-user"></span>
-          <input type="text"  name="user_name"  value="" placeholder="UseName 英数字40文字以内">
+          <input type="text"  name="user_name"  value="" placeholder="UseName 40文字以内">
 			<p><font color="white">${nameMessage}</font></p>
         <span class="fontawesome-user"></span>
           <input type="text"  name="user_id"  value="" placeholder="UserId 英数字5～20文字">
@@ -28,6 +26,7 @@
           <input type="password"  name="password"  value="" placeholder="Password 英数字4～8文字">
 			<p><font color="white">${passwordMessage}</font></p>
          <span class="fontawesome-date"></span>
+          <p><b><font color="BBBBBB" size="-1">Birthday</font></b></p>
           <input type="date"  name="age"  value="" placeholder="age">
 			<p><font color="white">${ageMessage}</font></p>
 
@@ -48,12 +47,12 @@
 
 
 </div>
-<!--/#footermenu-->
+
 
 <div id="copyright">
 <h5 style="text-align: center"><font color="white">TrinkenVerein</font></h5>
 </div>
-<!--/#copyright-->
+
 
 </footer>
 

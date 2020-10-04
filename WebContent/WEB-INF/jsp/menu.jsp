@@ -2,32 +2,22 @@
  pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ja">
+
  <head>
  <meta charset="UTF-8">
- <meta http-equiv="X-UA-Compatible" content="IE=edge">
- <title>Beer Site</title>
+ <title>TrinkenVerein</title>
  <meta name="viewport" content="width=device-width, initial-scale=1">
- <meta name="description" content="Beer Site">
- <meta name="keywords" content="キーワード１,キーワード２,キーワード３,キーワード４,キーワード５">
+ <title>TrinkenVerein</title>
  <link rel="stylesheet" href="css/style.css">
  <script src="js/openclose.js"></script>
  <script src="js/fixmenu_pagetop.js"></script>
  <script src="js/ddmenu_min.js"></script>
- <!--[if lt IE 10]>
- <style>
- .slide0,.slide2,.slide3 {display:none;}
- </style>
- <![endif]-->
- <!--[if lt IE 9]>
- <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
- <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
- <![endif]-->
  </head>
 
  <body class="home">
   <div id="container"></div>
 
-  <jsp:include page="/WEB-INF/jsp/include/header.jsp"/><%--ヘッダー表示--%>
+  <jsp:include page="/WEB-INF/jsp/include/header.jsp"/>
 
   <div id="contents">
    <section>
@@ -58,21 +48,19 @@
       <p>簡単な質問に答えていただくだけでおすすめのビールを紹介します。</p>
       <p>下記ボタンよりお進みください。</p>
       <p class="btn1">
-       <a href="${pageContext.request.contextPath}/RecruitInitServlet">ビール検索してみる</a>
+       <a href="${pageContext.request.contextPath}/QuestionInitServlet">ビール検索してみる</a>
       </p>
      </div>
     </div>
    </section>
   </div>
-  <!--/#contents-->
 
-  <!--背景スライドショー-->
   <aside id="mainimg">
    <img src="images/11.jpg" alt="" class="slide1">
    <img src="images/22.jpg" alt="" class="slide2">
    <img src="images/33.jpg" alt="" class="slide3">
   </aside>
 
-  <jsp:include page="/WEB-INF/jsp/include/footer.jsp"/><%--フッター表示--%>
+  <jsp:include page="/WEB-INF/jsp/include/footer.jsp"/>
  </body>
 </html>

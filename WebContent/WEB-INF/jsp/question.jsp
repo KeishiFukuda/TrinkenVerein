@@ -4,19 +4,13 @@
 <html lang="ja">
  <head>
  <meta charset="UTF-8">
- <meta http-equiv="X-UA-Compatible" content="IE=edge">
- <title>TrinkenVerein</title>
+ <title>ビール検索</title>
  <meta name="viewport" content="width=device-width, initial-scale=1">
- <meta name="description" content="ここにサイト説明を入れます">
- <meta name="keywords" content="キーワード１,キーワード２,キーワード３,キーワード４,キーワード５">
  <link rel="stylesheet" href="css/style.css">
  <script src="js/openclose.js"></script>
  <script src="js/fixmenu_pagetop.js"></script>
  <script src="js/ddmenu_min.js"></script>
- <!--[if lt IE 9]>
- <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
- <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
- <![endif]-->
+
  <style>
  h4 {
   padding: 1rem 1rem;
@@ -137,30 +131,30 @@
 
  .button {
   display: inline-block;
-  border-radius: 5%; /* 角丸       */
-  font-size: 14pt; /* 文字サイズ */
-  text-align: center; /* 文字位置   */
-  cursor: pointer; /* カーソル   */
-  padding: 5px 42px; /* 余白       */
-  background: #ff7f00; /* 背景色     */
-  color: #ffffff; /* 文字色     */
-  line-height: 1em; /* 1行の高さ  */
-  transition: .3s; /* なめらか変化 */
-  box-shadow: 5px 5px 38px #666666; /* 影の設定 */
-  border: 2px solid #ff7f00; /* 枠の指定 */
+  border-radius: 5%;
+  font-size: 14pt;
+  text-align: center;
+  cursor: pointer;
+  padding: 5px 42px;
+  background: #ff7f00;
+  color: #ffffff;
+  line-height: 1em;
+  transition: .3s;
+  box-shadow: 5px 5px 38px #666666;
+  border: 2px solid #ff7f00;
  }
 
  .button:hover {
-  box-shadow: none; /* カーソル時の影消去 */
-  color: #ff7f00; /* 背景色     */
-  background: #ffffff; /* 文字色     */
+  box-shadow: none;
+  color: #ff7f00;
+  background: #ffffff;
  }
  </style>
  </head>
 
  <body>
   <div id="container">
-   <jsp:include page="/WEB-INF/jsp/include/header.jsp"/><%--ヘッダー表示--%>
+   <jsp:include page="/WEB-INF/jsp/include/header.jsp"/>
   </div>
 
   <div id="contents">
@@ -173,7 +167,7 @@
      <div class="text">
       <h4>おススメのビールを検索するため質問にお答えください♬</h4>
       <h5>${question.question}</h5>
-      <p></p>
+
 
       <div class="cp_ipradio">
        <form action="${pageContext.request.contextPath}/QuestionServlet" method="post">
@@ -194,8 +188,8 @@
     </div>
    </section>
   </div>
-  <!--/#contents-->
 
-  <jsp:include page="/WEB-INF/jsp/include/footer.jsp"/><%--フッター表示--%>
+
+  <jsp:include page="/WEB-INF/jsp/include/footer.jsp"/>
  </body>
 </html>

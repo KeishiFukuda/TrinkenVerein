@@ -12,10 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import entity.BeerEntity;
-import logic.ProductLogic;
+import logic.BeerLogic;
 
-@WebServlet("/InformationServlet")
-public class InformationServlet extends HttpServlet {
+@WebServlet("/ResultServlet")
+public class ResultServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -26,14 +26,14 @@ public class InformationServlet extends HttpServlet {
 		BeerEntity beerCondition = (BeerEntity)session.getAttribute("beerCondition");
 
 		//ProductLogicを実行し結果を設定
-		ProductLogic productLogic = new ProductLogic();
+		BeerLogic productLogic = new BeerLogic();
 		List<BeerEntity> beerResultList = productLogic.execute(beerCondition);
 
 		// リクエストスコープに結果設定を保存
 		request.setAttribute("beerResultList", beerResultList);
 
 		//Information.jspにフォワード
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/information.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");
 		dispatcher.forward(request, response);
 
 	}

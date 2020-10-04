@@ -1,32 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en-US">
+<html>
 <head>
   <meta charset="utf-8">
-    <title>Login</title>
-
+    <title>Registration Successed</title>
     <link rel="stylesheet" href="css/input.css">
 <style>
 
 .button {
   display       : inline-block;
-  border-radius : 5%;          /* 角丸       */
-  font-size     : 14pt;        /* 文字サイズ */
-  text-align    : center;      /* 文字位置   */
-  cursor        : pointer;     /* カーソル   */
-  padding       : 5px 70px;   /* 余白       */
-  background    : #ff7f00;     /* 背景色     */
-  color         : #ffffff;     /* 文字色     */
-  line-height   : 1em;         /* 1行の高さ  */
-  transition    : .3s;         /* なめらか変化 */
-  box-shadow    : 5px 5px 38px #666666;  /* 影の設定 */
-  border        : 2px solid #ff7f00;    /* 枠の指定 */
+  border-radius : 5%;
+  font-size     : 14pt;
+  text-align    : center;
+  cursor        : pointer;
+  padding       : 5px 70px;
+  background    : #ff7f00;
+  color         : #ffffff;
+  line-height   : 1em;
+  transition    : .3s;
+  box-shadow    : 5px 5px 38px #666666;
+  border        : 2px solid #ff7f00;
 }
 .button:hover {
-  box-shadow    : none;        /* カーソル時の影消去 */
-  color         : #ff7f00;     /* 背景色     */
-  background    : #ffffff;     /* 文字色     */
+  box-shadow    : none;
+  color         : #ff7f00;
+  background    : #ffffff;
 }
 
 </style>
@@ -66,12 +65,12 @@
 
 
 </div>
-<!--/#footermenu-->
+
 
 <div id="copyright">
 <h5 style="text-align: center"><font color="white">TrinkenVerein</font></h5>
 </div>
-<!--/#copyright-->
+
 
 </footer>
 

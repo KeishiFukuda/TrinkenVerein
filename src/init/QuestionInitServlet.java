@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import dto.QuestionDTO;
 
-@WebServlet("/RecruitInitServlet")
-public class RecruitInitServlet extends HttpServlet {
+@WebServlet("/QuestionInitServlet")
+public class QuestionInitServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -26,7 +26,7 @@ public class RecruitInitServlet extends HttpServlet {
 		question.setQuestionId("q1");
 		request.setAttribute("question", question);
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/recruit.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/question.jsp");
 		dispatcher.forward(request, response);
 
 

@@ -18,12 +18,12 @@ import entity.UserInfoEntity;
 /**
  * Servlet Filter implementation class LoginStateConfirmationFilter
  */
-@WebFilter("/RecruitInitServlet")
+@WebFilter("/QuestionInitServlet")
 public class LoginStateConfirmationFilter implements Filter {
 
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
-		System.out.println("ログイン状態確認");
+
 
 		//セッションスコープ"LOGIN_USER_ENTITY"の取得
 		//"LOGIN_USER_ENTITY"が存在しない場合NULLが返される
@@ -35,7 +35,7 @@ public class LoginStateConfirmationFilter implements Filter {
 			chain.doFilter(request, response);
 		} else {
 			// セッションがNULLならば、login.jsp（ログイン画面）へ遷移
-			request.setAttribute("loginRequestInformation", "おススメビール検索をご利用の方は、ログインをお願いします。");
+			request.setAttribute("loginRequestInformation", "ビール検索をご利用の方は、ログインをお願いします。");
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
 			dispatcher.forward(request, response);
 		}

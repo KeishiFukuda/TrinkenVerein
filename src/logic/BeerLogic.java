@@ -5,7 +5,7 @@ import java.util.List;
 import dao.BeerDao;
 import entity.BeerEntity;
 
-public class ProductLogic {
+public class BeerLogic {
 
 	public List<BeerEntity> execute(BeerEntity beerCondition) {
 		BeerDao beerDao = new BeerDao();

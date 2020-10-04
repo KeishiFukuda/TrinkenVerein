@@ -11,21 +11,18 @@
 
  <body>
   <h1>&emsp;</h1>
-
   <h2>&emsp;</h2>
 
   <h3 style="text-align: center">
    <font color="white" size="+3">Login screen</font>
   </h3>
 
-  <%--ログイン失敗時表示「ユーザIDまたはパスワードが間違っています。」--%>
   <c:if test="${not empty message}">
    <div style="text-align: center">
     <span style="color:red">${message}</span>
    </div>
   </c:if>
 
-  <%--未ログイン時表示「おススメビール検索をご利用の方は、ログインをお願いします。」--%>
   <c:if test="${not empty loginRequestInformation}">
    <div style="text-align: center">
     <span style="color:yellow">${loginRequestInformation}</span>
