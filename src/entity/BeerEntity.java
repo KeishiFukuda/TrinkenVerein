@@ -12,6 +12,10 @@ public class BeerEntity {
 	private Integer price;//価格
 	private String shopUrl;//購入サイトURL
 
+
+
+
+
 	public Integer getRegisterId() {
 		return registerId;
 	}

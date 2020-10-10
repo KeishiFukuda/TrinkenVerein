@@ -16,6 +16,20 @@
   font-size: 2em;
   color: #7172ac;
  }
+
+
+h4 {
+  position: relative;
+  padding: 0.25em 0;
+}
+h4:after {
+  content: "";
+  display: block;
+  height: 4px;
+  background: -webkit-linear-gradient(to right, rgb(230, 90, 90), transparent);
+  background: linear-gradient(to right, rgb(230, 90, 90), transparent);
+}
+
  </style>
  </head>
 
@@ -50,12 +64,12 @@
       <p>特徴や飲みやすさを紹介しております。紹介文へも注目していただけると幸いです。</p>
       <br>
       <p>簡単な質問に答えていただくだけで、</p>
-      <p>ビールが好きな方、ビールが嫌いな方にもおすすめのビールを紹介致します。</p>
+      <p>ビールが好きな方、ビールが苦手な方にもおすすめのビールを紹介致します。</p>
       <p>気になるビール🍺がありましたら、購入サイトへつながっておりますので、</p>
       <p>一度ご賞味くださいませ✨</p>
       <p>ぜひ一度ビール検索してみてください♬</p>
       <p><font color="red">~飲みすぎは注意です。人生を狂わす可能性があります~</font></p>
-      <p class="btn1"><a href="${pageContext.request.contextPath}/RecruitInitServlet">ビール検索してみる🍺</a></p>
+      <p class="btn1"><a href="${pageContext.request.contextPath}/QuestionInitServlet">ビール検索してみる🍺</a></p>
      </div>
     </div>
    </section>

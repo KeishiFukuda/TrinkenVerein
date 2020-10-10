@@ -49,7 +49,7 @@
         </a>
         <br>
         <br>
-         <a href="${pageContext.request.contextPath}/loginInitServlet">
+         <a href="${pageContext.request.contextPath}/LoginInitServlet">
             <button type="button" class="button">ログイン画面へ進む</button>
         </a>
 

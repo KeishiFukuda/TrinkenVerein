@@ -4,20 +4,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.sql.DataSource;
-
 import entity.UserInfoEntity;
 
-public class UserLoginDao {
+public class UserLoginDao extends AbstractDao{
 
 	public UserInfoEntity loginUser(UserInfoEntity condition) {
 		try {
-			Context initContext = new InitialContext();
-			Context envContext = (Context) initContext.lookup("java:/comp/env");
-			DataSource dataSource = (DataSource) envContext.lookup("jdbc/beerserver");
-			Connection connection = dataSource.getConnection();
+			Connection connection = super.dao();
 
 			//SQL
 			String sql = "select user_id, user_name, \"password\" from users"

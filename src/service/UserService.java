@@ -13,8 +13,6 @@ public class UserService {
 
 		UserInfoEntity condition = new UserInfoEntity();
 
-
-
 		condition.setUserId(userDataDTO.getUserId());
 		condition.setUserName(userDataDTO.getUserName());
 		condition.setPassword(Util.digest(userDataDTO.getPassword()));
@@ -27,8 +25,8 @@ public class UserService {
 	public UserInfoEntity loginUser(UserDataDTO userDataDTO) {
 
 		UserLoginDao userDao = new UserLoginDao();
-
 		UserInfoEntity condition = new UserInfoEntity();
+
 		condition.setUserId(userDataDTO.getUserId());
 		condition.setPassword(Util.digest(userDataDTO.getPassword()));
 
@@ -36,7 +34,9 @@ public class UserService {
 
 		return userInfoEntity;
 	}
+
 	public UserInfoEntity checkUser(UserDataDTO userDataDTO) {
+
 		CheckDao checkDao = new CheckDao();
 		UserInfoEntity condition = new UserInfoEntity();
 		condition.setUserId(userDataDTO.getUserId());

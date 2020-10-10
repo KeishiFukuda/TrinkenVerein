@@ -4,20 +4,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.sql.DataSource;
-
 import entity.UserInfoEntity;
 
-public class CheckDao {
+public class CheckDao extends AbstractDao{
 
 	public UserInfoEntity checkUser(UserInfoEntity condition) {
 		try {
-			Context initContext = new InitialContext();
-			Context envContext = (Context) initContext.lookup("java:/comp/env");
-			DataSource dataSource = (DataSource) envContext.lookup("jdbc/beerserver");
-			Connection connection = dataSource.getConnection();
+			Connection connection = super.dao();
 
 			//SQL
 			String sql = "select user_id from users where user_id = ? ;";

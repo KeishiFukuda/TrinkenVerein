@@ -21,13 +21,11 @@ import service.UserService;
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		doPost(request, response);
 	}
-
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -55,7 +53,7 @@ public class LoginServlet extends HttpServlet {
 
 			if (userInfoEntity != null) {
 
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/menu.jsp");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/RecommendServlet");
 				dispatcher.forward(request, response);
 			} else {
 
@@ -67,7 +65,6 @@ public class LoginServlet extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 
 	}
 

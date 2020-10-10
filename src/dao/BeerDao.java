@@ -6,13 +6,9 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.sql.DataSource;
-
 import entity.BeerEntity;
 
-public class BeerDao {
+public class BeerDao extends AbstractDao{
 	/*
 	 * 「おススメビール検索」処理
 	 */
@@ -21,12 +17,8 @@ public class BeerDao {
 		List<BeerEntity> beerResultList = new ArrayList<>();
 
 		try {
-			//JDBCドライバの情報をTomcatの設定ファイル「server.xml」のコンテキスト（Context）から取得
-			Context initContext = new InitialContext();
-			Context envContext = (Context) initContext.lookup("java:/comp/env");
-			DataSource dataSource = (DataSource) envContext.lookup("jdbc/beerserver");
-			//JDBCドライバの情報の情報を使用して、DBへアクセス
-			Connection connection = dataSource.getConnection();
+
+			Connection connection = super.dao();
 
 			//SQL文を作成してRegisterIdを条件にセットし、実行
 			String sql = "select product_name,image,heading,text_paragraph1,text_paragraph2,"

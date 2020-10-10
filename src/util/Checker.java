@@ -20,19 +20,15 @@ public class Checker {
 		UserService service = new UserService();
 		UserInfoEntity entity = service.checkUser(user);
 
-
-
 		if (!(UserId == null)) {
 			if (!(UserId.isEmpty())) {
 				if(entity == null) {
 					if (UserId.matches("^[A-Za-z0-9]+$")) { //半角チェック
 						if (UserId.matches(".{5,20}")) {
 							return UserId;
-
 						} else {
 							idMessage ="5～20文字で入力してください。";
 							return  idMessage;
-
 						}
 					} else {
 						idMessage ="半角で入力してください。";
@@ -50,8 +46,6 @@ public class Checker {
 			idMessage ="IDが未入力です。";
 			return idMessage;
 		}
-
-
 	}
 
 	public static String checkName(String UserName) throws IOException {
@@ -72,8 +66,6 @@ public class Checker {
 			nameMessage = "名前が未入力です。";
 			return nameMessage;
 		}
-
-
 	}
 
 	public static String checkPassword(String UserPassword) throws IOException {
@@ -99,11 +91,7 @@ public class Checker {
 			passwordMessage = "パスワードは4～8文字で入力してください。";
 			return passwordMessage;
 		}
-
-
 	}
-
-
 
 	public static String checkAge(String Birthday) throws ParseException {
 		String birthdayMessage = null;
@@ -114,19 +102,15 @@ public class Checker {
 		LocalDate d1 = LocalDate.parse(Birthday, f);
 		LocalDate d2 = LocalDate.now();
 
-		//日数など特定の単位での期間を計算する
 		long days = ChronoUnit.DAYS.between(d1, d2);
 
 			if (7305 <= days) {
 				return Birthday;
-
-
 			} else {
 				if(7304==days) {
 					birthdayMessage = "ちょっと早いけど HappyBirthday!、明日ご来訪ください。";
 					return birthdayMessage;
 				}
-
 				 birthdayMessage = "お酒は20歳を超えてから！！！！！！";
 				return birthdayMessage;
 			}
@@ -134,7 +118,5 @@ public class Checker {
 			birthdayMessage ="誕生日を入力してください。";
 			return  birthdayMessage;
 		}
-
-
 	}
 }

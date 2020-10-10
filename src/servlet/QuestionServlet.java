@@ -27,7 +27,6 @@ public class QuestionServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		List<String> questions = new ArrayList<String>();
-		//		questions.add("ビールが好き？or苦手？");  <== 初期値はinitServletで受け渡し。
 		questions.add("苦味・渋味orフルーティ 苦味が好きな方はYESを✨フルーティ好きはNOを✨");
 		questions.add("値段高い？or安い？ 高いビールはYESを✨安くておいしいビールはNOを✨");
 
@@ -51,7 +50,6 @@ public class QuestionServlet extends HttpServlet {
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/ResultServlet");
 				dispatcher.forward(request, response);
 			}
-
 		} else if (request.getParameter("questionId").equals("q2")) {
 			if (request.getParameter("answer").equals("A1")) {
 				question.setQuestion(questions.get(1));
@@ -72,17 +70,8 @@ public class QuestionServlet extends HttpServlet {
 				dispatcher.forward(request, response);
 			}
 
-		}else if(request.getParameter("questionId").equals("q3")) {
-			if(request.getParameter("answer").equals("A1")) {
-				BeerEntity beer = new BeerEntity();
-				beer.setClassification("C");
-
-				HttpSession session = request.getSession();
-				session.setAttribute("beerCondition", beer);
-
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/ResultServlet");
-				dispatcher.forward(request, response);
-			}else {
+		} else if (request.getParameter("questionId").equals("q3")) {
+			if (request.getParameter("answer").equals("A1")) {
 				BeerEntity beer = new BeerEntity();
 				beer.setClassification("D");
 
@@ -91,9 +80,16 @@ public class QuestionServlet extends HttpServlet {
 
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/ResultServlet");
 				dispatcher.forward(request, response);
+			} else {
+				BeerEntity beer = new BeerEntity();
+				beer.setClassification("C");
+
+				HttpSession session = request.getSession();
+				session.setAttribute("beerCondition", beer);
+
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/ResultServlet");
+				dispatcher.forward(request, response);
 			}
 		}
-
 	}
-
 }

@@ -26,7 +26,7 @@ public class MenuInitServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/menu.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/RecommendServlet");
 		dispatcher.forward(request, response);
 	}
 

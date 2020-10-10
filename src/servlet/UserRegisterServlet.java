@@ -16,16 +16,15 @@ import util.Checker;
 
 @WebServlet("/UserRegisterServlet")
 public class UserRegisterServlet extends HttpServlet {
+
 	private static final long serialVersionUID = 1L;
 
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-
-		doPost(request,response);
+		doPost(request, response);
 
 	}
-
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -38,20 +37,20 @@ public class UserRegisterServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		String birthday = request.getParameter("age");
 
-		if(Checker.checkName(name) != name) {
+		if (Checker.checkName(name) != name) {
 			request.setAttribute("nameMessage", Checker.checkName(name));
 			hasError = true;
 		}
-		if(Checker.checkId(id) != id) {
+		if (Checker.checkId(id) != id) {
 			request.setAttribute("idMessage", Checker.checkId(id));
 			hasError = true;
 		}
-		if(Checker.checkPassword(password) != password) {
+		if (Checker.checkPassword(password) != password) {
 			request.setAttribute("passwordMessage", Checker.checkPassword(password));
 			hasError = true;
 		}
 		try {
-			if(Checker.checkAge(birthday) != birthday) {
+			if (Checker.checkAge(birthday) != birthday) {
 				request.setAttribute("ageMessage", Checker.checkAge(birthday));
 				hasError = true;
 			}
@@ -59,15 +58,13 @@ public class UserRegisterServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 
-
-
-		if(hasError) {
+		if (hasError) {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/register.jsp");
 			dispatcher.forward(request, response);
 			return;
 		}
 
-		UserService service =  new UserService();
+		UserService service = new UserService();
 
 		UserDataDTO userData = new UserDataDTO();
 

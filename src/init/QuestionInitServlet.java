@@ -22,7 +22,7 @@ public class QuestionInitServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		QuestionDTO question = new QuestionDTO();
-		question.setQuestion("ビールが好き？好きな場合はYESを✨嫌いな場合はNOを✨");
+		question.setQuestion("ビールが好き？好きな場合はYESを✨苦手な場合はNOを✨");
 		question.setQuestionId("q1");
 		request.setAttribute("question", question);
 

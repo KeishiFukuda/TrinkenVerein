@@ -34,7 +34,7 @@
         <input type="submit" value="Registration">
 <ul>
 <li class="title"><font color="white">登録済みの方はログイン画面へお進み下さい。</font></li>
-<li><a href="${pageContext.request.contextPath}/loginInitServlet"><font color="white">ログイン画面</font></a></li>
+<li><a href="${pageContext.request.contextPath}/LoginInitServlet"><font color="white">ログイン画面</font></a></li>
 <li><a href="${pageContext.request.contextPath}/MenuInitServlet"><font color="white">メニュー画面</font></a></li>
 </ul>
 		</form>

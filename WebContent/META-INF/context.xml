@@ -7,7 +7,7 @@
     url="jdbc:postgresql://localhost:5432/beerserver"
     username="postgres"
     password="root"
-    maxActive="10"
-    maxIdle="5"
+    maxActive="20"
+    maxIdle="10"
     maxWait="-1"/>
 </Context>

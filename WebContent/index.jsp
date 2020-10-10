@@ -1,1 +1,1 @@
-<jsp:forward page="/ageComfirmationInitServlet"></jsp:forward>
+<jsp:forward page="/AgeComfirmationInitServlet"></jsp:forward>

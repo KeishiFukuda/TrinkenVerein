@@ -115,7 +115,7 @@ header #logo img {
 /*ドロップダウンのマウスオン事*/
 li:hover ul.ddmenu {
 	animation-name: opa1;	/*keyframes.cssで使う@keyframesの指定*/
-	animation-duration: 0.4S;	/*アニメーションの実行時間。0.4秒。*/
+	animation-duration: 0.01S;	/*アニメーションの実行時間。0.4秒。*/
 	animation-fill-mode: both;	/*アニメーションの待機中は最初のキーフレームを維持、終了後は最後のキーフレームを維持。*/
 }
 

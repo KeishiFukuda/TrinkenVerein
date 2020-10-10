@@ -19,7 +19,7 @@
 
     <li class="ddmenu-title">Login▾
      <ul class="ddmenu">
-      <li><a href="${pageContext.request.contextPath}/loginInitServlet">ログインする</a></li>
+      <li><a href="${pageContext.request.contextPath}/LoginInitServlet">ログインする</a></li>
       <li><a href="${pageContext.request.contextPath}/RegisterInitServlet">新規登録をする</a></li>
      </ul>
     </li>
@@ -39,12 +39,5 @@
   </nav>
 
 
-  <nav id="menubar-s">
-   <ul class="icon">
-    <li><a href="#"><img src="images/icon_facebook.png" alt="Facebook"></a></li>
-    <li><a href="#"><img src="images/icon_twitter.png" alt="Twitter"></a></li>
-    <li><a href="#"><img src="images/icon_instagram.png" alt="Instagram"></a></li>
-    <li><a href="#"><img src="images/icon_youtube.png" alt="TouTube"></a></li>
-   </ul>
-  </nav>
+
  </header>
